@@ -1,11 +1,14 @@
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
+alarma/AlarmaService.java
+ alarma.AlarmaService
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
  alarma.Alarma
+gateway/Observer.java
+ gateway.Observer
+ gateway.Observer$1
 interfazUsuario/Prueba.java
  interfazUsuario.Prueba
 servicios/_AlarmaServicePrxI.java
@@ -16,6 +19,8 @@ servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 alarma/AlarmaRepositorio.java
  alarma.AlarmaRepositorio
+gateway/_ObservablePrxI.java
+ gateway._ObservablePrxI
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 servicios/ServicioAbastecimientoPrx.java
@@ -29,10 +34,14 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 ingrediente/IngredienteRepositorio.java
  ingrediente.IngredienteRepositorio
 monedero/MonedasRepositorio.java
  monedero.MonedasRepositorio
+gateway/_ObserverPrxI.java
+ gateway._ObserverPrxI
 servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 servicios/Moneda.java
@@ -62,6 +71,11 @@ McControlador/ControladorMQ.java
  McControlador.ControladorMQ$7
  McControlador.ControladorMQ$8
  McControlador.ControladorMQ$9
+gateway/ObserverPrx.java
+ gateway.ObserverPrx
+gateway/Observable.java
+ gateway.Observable
+ gateway.Observable$1
 McControlador/Venta.java
  McControlador.Venta
 monedero/DepositoMonedas.java
@@ -77,6 +91,8 @@ interfaces/Repositorio.java
  interfaces.Repositorio
 servicios/VentaServicePrx.java
  servicios.VentaServicePrx
+gateway/ObservablePrx.java
+ gateway.ObservablePrx
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
 servicios/ServicioAbastecimiento.java
@@ -86,23 +102,7 @@ servicios/MapStrIntHelper.java
  servicios.MapStrIntHelper
 ingrediente/IngredienteService.java
  ingrediente.IngredienteService
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
-alarma/AlarmaService.java
- alarma.AlarmaService
-gateway/Observer.java
- gateway.Observer
- gateway.Observer$1
-gateway/ObserverPrx.java
- gateway.ObserverPrx
-gateway/ObservablePrx.java
- gateway.ObservablePrx
-gateway/Observable.java
- gateway.Observable
- gateway.Observable$1
-gateway/_ObserverPrxI.java
- gateway._ObserverPrxI
-gatewayCommunication/ObserverImp.java
- gatewayCommunication.ObserverImp
 CoffeeMach.java
  CoffeeMach
+gatewayCommunication/ObserverImp.java
+ gatewayCommunication.ObserverImp

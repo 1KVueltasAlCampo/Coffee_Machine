@@ -56,7 +56,7 @@ module servicios{
 
 module gateway {
   interface Observer{
-    void update(string message);
+    void update();
   }
 
   interface Observable{

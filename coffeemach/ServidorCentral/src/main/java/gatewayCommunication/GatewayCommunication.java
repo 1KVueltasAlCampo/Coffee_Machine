@@ -1,5 +1,6 @@
 package gatewayCommunication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.zeroc.Ice.Communicator;
@@ -10,6 +11,7 @@ import gateway.ObserverPrx;
 public class GatewayCommunication implements gateway.Observable {
 
     private Communicator communicator;
+    private List<ObserverPrx> observers;
 
     /**
      * @param communicator the communicator to set
@@ -18,29 +20,26 @@ public class GatewayCommunication implements gateway.Observable {
         this.communicator = communicator;
     }
 
-
-    private List<ObserverPrx> observers;
+    public GatewayCommunication() {
+        this.observers = new ArrayList<>();
+    }
+    
 
     @Override
     public void addObserver(ObserverPrx o, Current current) {
-        try {
-            System.out.println("Observer = " + o.toString());
-            o.update("CONECTADO");
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+        observers.add(o);
     }
 
     @Override
     public void removeObserver(ObserverPrx o, Current current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeObserver'");
+        observers.remove(o);
     }
 
     @Override
     public void notifyObservers(Current current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'notifyObservers'");
+        for (ObserverPrx observer : observers) {
+            observer.update();
+        }
     }
     
 }

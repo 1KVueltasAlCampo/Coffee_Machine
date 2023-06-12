@@ -22,21 +22,22 @@ public class CoffeeMach {
       ObservablePrx gateway = ObservablePrx.checkedCast(
         communicator.propertyToProxy("gateway")).ice_twoway();
 
-      ObserverImp observerImp = new ObserverImp(gateway);
-
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
-
-      ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));
 
       ControladorMQ service = new ControladorMQ();
       service.setAlarmaService(alarmaS);
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);
 
+      ObserverImp observerImp = new ObserverImp(gateway,service);
+      ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));
+
       service.run();   
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
       adapter.activate();
+
       ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
+      
       gateway.addObserver(prx);
       communicator.waitForShutdown();
     }
