@@ -41,7 +41,7 @@ public class ServidorCentral {
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
             adapter.add(gateway, Util.stringToIdentity("Gateway"));
             
-            ControladorRecetas controladorRecetas = new ControladorRecetas();
+            ControladorRecetas controladorRecetas = new ControladorRecetas(gateway);
             controladorRecetas.setRecetaService(recetas);
             controladorRecetas.run();
 

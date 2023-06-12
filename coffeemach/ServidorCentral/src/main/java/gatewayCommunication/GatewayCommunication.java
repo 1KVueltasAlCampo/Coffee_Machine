@@ -23,12 +23,10 @@ public class GatewayCommunication implements gateway.Observable {
     public GatewayCommunication() {
         this.observers = new ArrayList<>();
     }
-    
 
     @Override
     public void addObserver(ObserverPrx o, Current current) {
         observers.add(o);
-        System.out.println(observers.size());
     }
 
     @Override

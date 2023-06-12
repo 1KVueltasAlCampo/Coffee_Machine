@@ -62,8 +62,8 @@ comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
 gateway/ObserverPrx.java
  gateway.ObserverPrx
-interfaz/InterfazRecetas.java
- interfaz.InterfazRecetas
+modelo/VentasReceta.java
+ modelo.VentasReceta
 modelo/Ingrediente.java
  modelo.Ingrediente
 gateway/Observable.java
@@ -88,15 +88,16 @@ modelo/ConexionBD.java
  modelo.ConexionBD
 gateway/ObservablePrx.java
  gateway.ObservablePrx
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+interfaz/InterfazRecetas.java
+ interfaz.InterfazRecetas
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+ interfaz.ControladorRecetas$4
 ServidorCentral.java
  ServidorCentral
 gatewayCommunication/GatewayCommunication.java

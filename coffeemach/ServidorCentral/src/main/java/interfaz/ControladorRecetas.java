@@ -6,12 +6,21 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import gatewayCommunication.GatewayCommunication;
 import receta.ProductoReceta;
 import servicios.*;
+
+import com.zeroc.Ice.Current;
 
 public class ControladorRecetas implements Runnable {
 
 	private ProductoReceta recetaService;
+
+	private GatewayCommunication gateway;
+
+	public ControladorRecetas(GatewayCommunication gateway) {
+		this.gateway = gateway;
+	}
 
 	/**
 	 * @param recetaService the recetaService to set
@@ -131,6 +140,12 @@ public class ControladorRecetas implements Runnable {
 				}
 
 				iR.getTextFieldAsociacion().setText("");
+			}
+		});
+
+		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gateway.notifyObservers(null);
 			}
 		});
 

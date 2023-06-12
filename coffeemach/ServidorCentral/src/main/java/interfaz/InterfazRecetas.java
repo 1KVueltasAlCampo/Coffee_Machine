@@ -143,4 +143,8 @@ public class InterfazRecetas extends JFrame {
 		return btnRIC;
 	}
 
+	public JButton getBtnActualizarMaquinas() {
+		return btnActualizarMaquinas;
+	}
+
 }
