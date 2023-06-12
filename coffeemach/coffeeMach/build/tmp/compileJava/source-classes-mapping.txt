@@ -102,7 +102,7 @@ servicios/MapStrIntHelper.java
  servicios.MapStrIntHelper
 ingrediente/IngredienteService.java
  ingrediente.IngredienteService
-CoffeeMach.java
- CoffeeMach
 gatewayCommunication/ObserverImp.java
  gatewayCommunication.ObserverImp
+CoffeeMach.java
+ CoffeeMach

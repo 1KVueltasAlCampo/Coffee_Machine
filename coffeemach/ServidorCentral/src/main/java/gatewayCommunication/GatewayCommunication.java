@@ -28,6 +28,7 @@ public class GatewayCommunication implements gateway.Observable {
     @Override
     public void addObserver(ObserverPrx o, Current current) {
         observers.add(o);
+        System.out.println(observers.size());
     }
 
     @Override
