@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.zeroc.Ice.*;
 import comunicacion.*;
+import gatewayCommunication.GatewayCommunication;
 import interfaz.ControladorRecetas;
 import receta.ProductoReceta;
 import servicios.*;
@@ -31,11 +32,15 @@ public class ServidorCentral {
             VentasManager ventas = new VentasManager();
             ventas.setCommunicator(communicator);
 
+            GatewayCommunication gateway = new GatewayCommunication();
+            gateway.setCommunicator(communicator);
+
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
-
+            adapter.add(gateway, Util.stringToIdentity("Gateway"));
+            
             ControladorRecetas controladorRecetas = new ControladorRecetas();
             controladorRecetas.setRecetaService(recetas);
             controladorRecetas.run();

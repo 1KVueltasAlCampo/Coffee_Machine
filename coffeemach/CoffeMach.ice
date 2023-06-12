@@ -53,3 +53,18 @@ module servicios{
     }
 
 }
+
+module gateway {
+  interface Observer{
+    void update(string message);
+  }
+
+  interface Observable{
+    void addObserver(Observer* o);
+    void removeObserver(Observer* o);
+    void notifyObservers();
+  }
+}
+
+
+

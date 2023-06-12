@@ -1,5 +1,7 @@
 package modelo;
 
+import gateway.ObserverPrx;
+
 public class Maquina {
 
 	private int id;
