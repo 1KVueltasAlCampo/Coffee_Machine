@@ -50,8 +50,8 @@ servicios/RecetaService.java
  servicios.RecetaService$1
 comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
-interfaz/InterfazRecetas.java
- interfaz.InterfazRecetas
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 modelo/Ingrediente.java
  modelo.Ingrediente
 modelo/Receta.java
@@ -71,17 +71,17 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+modelo/VentasReceta.java
+ modelo.VentasReceta
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+interfaz/InterfazRecetas.java
+ interfaz.InterfazRecetas
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
