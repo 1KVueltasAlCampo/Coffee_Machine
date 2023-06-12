@@ -38,7 +38,7 @@ public class CoffeeMach {
 
       ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
       
-      gateway.addObserver(prx);
+      gateway.attach(prx);
       communicator.waitForShutdown();
     }
   }

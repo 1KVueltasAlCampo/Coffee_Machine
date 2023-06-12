@@ -60,8 +60,8 @@ module gateway {
   }
 
   interface Observable{
-    void addObserver(Observer* o);
-    void removeObserver(Observer* o);
+    void attach(Observer* o);
+    void detach(Observer* o);
     void notifyObservers();
   }
 }

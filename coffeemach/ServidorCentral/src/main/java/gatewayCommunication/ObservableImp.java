@@ -8,7 +8,7 @@ import com.zeroc.Ice.Current;
 
 import gateway.ObserverPrx;
 
-public class GatewayCommunication implements gateway.Observable {
+public class ObservableImp implements gateway.Observable {
 
     private Communicator communicator;
     private List<ObserverPrx> observers;
@@ -20,17 +20,17 @@ public class GatewayCommunication implements gateway.Observable {
         this.communicator = communicator;
     }
 
-    public GatewayCommunication() {
+    public ObservableImp() {
         this.observers = new ArrayList<>();
     }
 
-    @Override
-    public void addObserver(ObserverPrx o, Current current) {
+        @Override
+    public void attach(ObserverPrx o, Current current) {
         observers.add(o);
     }
 
     @Override
-    public void removeObserver(ObserverPrx o, Current current) {
+    public void detach(ObserverPrx o, Current current) {
         observers.remove(o);
     }
 
@@ -40,5 +40,6 @@ public class GatewayCommunication implements gateway.Observable {
             observer.update();
         }
     }
+
     
 }

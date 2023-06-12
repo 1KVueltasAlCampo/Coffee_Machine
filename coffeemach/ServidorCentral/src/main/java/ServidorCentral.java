@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.zeroc.Ice.*;
 import comunicacion.*;
-import gatewayCommunication.GatewayCommunication;
+import gatewayCommunication.ObservableImp;
 import interfaz.ControladorRecetas;
 import receta.ProductoReceta;
 import servicios.*;
@@ -32,7 +32,7 @@ public class ServidorCentral {
             VentasManager ventas = new VentasManager();
             ventas.setCommunicator(communicator);
 
-            GatewayCommunication gateway = new GatewayCommunication();
+            ObservableImp gateway = new ObservableImp();
             gateway.setCommunicator(communicator);
 
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));

@@ -18,8 +18,8 @@ servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 modelo/AlarmaMaquina.java
  modelo.AlarmaMaquina
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 modelo/Operador.java
  modelo.Operador
 servicios/_VentaServicePrxI.java
@@ -66,9 +66,8 @@ modelo/VentasReceta.java
  modelo.VentasReceta
 modelo/Ingrediente.java
  modelo.Ingrediente
-gateway/Observable.java
- gateway.Observable
- gateway.Observable$1
+interfaz/InterfazRecetas.java
+ interfaz.InterfazRecetas
 modelo/Receta.java
  modelo.Receta
 modelo/VentasMaquina.java
@@ -88,17 +87,18 @@ modelo/ConexionBD.java
  modelo.ConexionBD
 gateway/ObservablePrx.java
  gateway.ObservablePrx
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-interfaz/InterfazRecetas.java
- interfaz.InterfazRecetas
+gateway/Observable.java
+ gateway.Observable
+ gateway.Observable$1
+gatewayCommunication/ObservableImp.java
+ gatewayCommunication.ObservableImp
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
  interfaz.ControladorRecetas$4
+gateway/_ObservablePrxI.java
+ gateway._ObservablePrxI
 ServidorCentral.java
  ServidorCentral
-gatewayCommunication/GatewayCommunication.java
- gatewayCommunication.GatewayCommunication

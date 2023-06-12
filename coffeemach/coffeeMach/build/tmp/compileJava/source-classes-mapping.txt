@@ -1,5 +1,5 @@
-alarma/AlarmaService.java
- alarma.AlarmaService
+CoffeeMach.java
+ CoffeeMach
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
@@ -34,8 +34,8 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+gatewayCommunication/ObserverImp.java
+ gatewayCommunication.ObserverImp
 ingrediente/IngredienteRepositorio.java
  ingrediente.IngredienteRepositorio
 monedero/MonedasRepositorio.java
@@ -102,7 +102,7 @@ servicios/MapStrIntHelper.java
  servicios.MapStrIntHelper
 ingrediente/IngredienteService.java
  ingrediente.IngredienteService
-gatewayCommunication/ObserverImp.java
- gatewayCommunication.ObserverImp
-CoffeeMach.java
- CoffeeMach
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
+alarma/AlarmaService.java
+ alarma.AlarmaService
