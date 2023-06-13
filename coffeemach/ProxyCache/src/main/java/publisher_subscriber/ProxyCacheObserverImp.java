@@ -37,6 +37,12 @@ public class ProxyCacheObserverImp implements pubsub.Observer {
             
         }
 
+        //Prints the proxy recipes
+        for (String recipe : updatedRecipes) {
+            System.out.println(recipe);
+            System.out.println("---------------------");
+        }
+
         proxyCacheObservableImp.setCacheRecipes(updatedRecipes);
 
         //Makes the observable proxy cache to notify all the machines
