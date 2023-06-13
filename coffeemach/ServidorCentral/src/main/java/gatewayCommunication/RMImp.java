@@ -8,10 +8,20 @@ import com.zeroc.Ice.Current;
 
 import gateway.ObserverPrx;
 import receta.ProductoReceta;
+import servicios.AlarmaService;
+import servicios.AlarmaServicePrx;
+import alarma.Alarma;
 
 public class RMImp implements gateway.ReliableMessage {
 
     private Communicator communicator;
+    private final static int INGREDIENTES=1;
+	private final static int MONEDAS=2;
+	private final static int SUMINISTRO =3;
+	private final static int ABASTECIMIENTO =4;
+	private final static int MALFUN =5;
+    //private Alarma alarmaService; //No se cual de los dos es el que se usa :c
+    private AlarmaServicePrx alarmaService;
 
     /**
      * @param communicator the communicator to set
@@ -25,7 +35,22 @@ public class RMImp implements gateway.ReliableMessage {
         String[] partsOfAlarm = a.split("@s");
 
         switch(Integer.parseInt(partsOfAlarm[0])){
-            
+            case INGREDIENTES:
+                alarmaService.recibirNotificacionEscasezIngredientes(partsOfAlarm[1], Integer.parseInt(partsOfAlarm[2]));
+                break;
+            case MONEDAS:
+                alarmaService.recibirNotificacionInsuficienciaMoneda(servicios.Moneda.valueOf(partsOfAlarm[1]), Integer.parseInt(partsOfAlarm[2]));
+                break;
+            case SUMINISTRO:
+                break;
+            case ABASTECIMIENTO:
+                alarmaService.recibirNotificacionAbastesimiento(Integer.parseInt(partsOfAlarm[1]), partsOfAlarm[2], Integer.parseInt(partsOfAlarm[3]));
+                break;
+            case MALFUN:
+                alarmaService.recibirNotificacionMalFuncionamiento(Integer.parseInt(partsOfAlarm[1]), partsOfAlarm[2]);
+                break;
+            default:
+                break;
         }
     }
 
