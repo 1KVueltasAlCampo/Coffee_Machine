@@ -21,7 +21,7 @@ public class ProxyReliableMessageImp implements gateway.ReliableMessage,Runnable
                 while(!alarmas.isEmpty()){
                     alarm = alarmas.peek();
                     server.notifyAlarm(alarm);
-                    alarmas.poll()
+                    alarmas.poll();
                 }
                 Thread.yield();
             }

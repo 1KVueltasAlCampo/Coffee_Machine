@@ -19,6 +19,8 @@ public class ProxyReliableMessage {
 
             ObjectPrx objectPrx = adapter.add(proxyReliableMessageImp, Util.stringToIdentity("proxyCache"));
 
+            proxyReliableMessageImp.run();
+
             adapter.activate();
 
             communicator.waitForShutdown();
