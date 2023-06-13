@@ -27,8 +27,6 @@ servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 suministro/SuministroServiceImp.java
  suministro.SuministroServiceImp
-gateway/_AlarmaPrxI.java
- gateway._AlarmaPrxI
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -46,19 +44,16 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 interfaces/Repositorio.java
  interfaces.Repositorio
-ingrediente/IngredienteService.java
- ingrediente.IngredienteService
 gateway/ReliableMessagePrx.java
  gateway.ReliableMessagePrx
+ingrediente/IngredienteService.java
+ ingrediente.IngredienteService
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 alarma/AlarmaService.java
  alarma.AlarmaService
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-gateway/Alarma.java
- gateway.Alarma
- gateway.Alarma$1
 gateway/Observer.java
  gateway.Observer
  gateway.Observer$1
@@ -108,8 +103,6 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 gateway/ObservablePrx.java
  gateway.ObservablePrx
-gateway/AlarmaPrx.java
- gateway.AlarmaPrx
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
 servicios/ServicioAbastecimiento.java

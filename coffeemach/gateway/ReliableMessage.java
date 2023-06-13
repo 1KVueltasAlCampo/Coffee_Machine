@@ -17,7 +17,7 @@ package gateway;
 
 public interface ReliableMessage extends com.zeroc.Ice.Object
 {
-    void notifyAlarm(AlarmaPrx a, com.zeroc.Ice.Current current);
+    void notifyAlarm(String alarma, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -54,10 +54,10 @@ public interface ReliableMessage extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        AlarmaPrx iceP_a;
-        iceP_a = AlarmaPrx.uncheckedCast(istr.readProxy());
+        String iceP_alarma;
+        iceP_alarma = istr.readString();
         inS.endReadParams();
-        obj.notifyAlarm(iceP_a, current);
+        obj.notifyAlarm(iceP_alarma, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 

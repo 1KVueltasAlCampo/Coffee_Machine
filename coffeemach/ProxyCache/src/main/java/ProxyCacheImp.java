@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 import com.zeroc.Ice.Current;
-import gateway.Alarma;
 
 import gateway.ObservablePrx;
 

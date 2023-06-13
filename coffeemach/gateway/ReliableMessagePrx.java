@@ -17,38 +17,38 @@ package gateway;
 
 public interface ReliableMessagePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void notifyAlarm(AlarmaPrx a)
+    default void notifyAlarm(String alarma)
     {
-        notifyAlarm(a, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        notifyAlarm(alarma, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void notifyAlarm(AlarmaPrx a, java.util.Map<String, String> context)
+    default void notifyAlarm(String alarma, java.util.Map<String, String> context)
     {
-        _iceI_notifyAlarmAsync(a, context, true).waitForResponse();
+        _iceI_notifyAlarmAsync(alarma, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAlarmAsync(AlarmaPrx a)
+    default java.util.concurrent.CompletableFuture<Void> notifyAlarmAsync(String alarma)
     {
-        return _iceI_notifyAlarmAsync(a, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_notifyAlarmAsync(alarma, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAlarmAsync(AlarmaPrx a, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> notifyAlarmAsync(String alarma, java.util.Map<String, String> context)
     {
-        return _iceI_notifyAlarmAsync(a, context, false);
+        return _iceI_notifyAlarmAsync(alarma, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_a -
+     * @param iceP_alarma -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyAlarmAsync(AlarmaPrx iceP_a, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyAlarmAsync(String iceP_alarma, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notifyAlarm", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_a);
+                     ostr.writeString(iceP_alarma);
                  }, null);
         return f;
     }

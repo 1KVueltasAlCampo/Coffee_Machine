@@ -1,5 +1,5 @@
 <state>
-  <timestamp value='1686682829938' />
+  <timestamp value='1686697699692' />
   <sourceSet name='default'>
     <source name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\CoffeMach.ice'>
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\ServicioComLogistica.java' />
@@ -9,7 +9,6 @@
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\VentaService.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\RecetaService.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\Observer.java' />
-      <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\Alarma.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\ReliableMessage.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\Observable.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\StringSeqHelper.java' />
@@ -26,8 +25,6 @@
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\_RecetaServicePrxI.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\ObserverPrx.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\_ObserverPrxI.java' />
-      <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\AlarmaPrx.java' />
-      <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\_AlarmaPrxI.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\ReliableMessagePrx.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\_ReliableMessagePrxI.java' />
       <file name='C:\Users\juand\OneDrive\Escritorio\Repos\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\gateway\ObservablePrx.java' />

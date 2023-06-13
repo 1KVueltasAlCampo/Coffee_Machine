@@ -9,7 +9,7 @@ import com.zeroc.Ice.Current;
 import gateway.ObserverPrx;
 import receta.ProductoReceta;
 
-public class ObservableImp implements gateway.Observable,gateway.ReliableMessage {
+public class ObservableImp implements gateway.Observable {
 
     private Communicator communicator;
     private ProductoReceta recetaService;
@@ -60,11 +60,6 @@ public class ObservableImp implements gateway.Observable,gateway.ReliableMessage
         
         // Imprimir el tiempo transcurrido en milisegundos
         System.out.println("Tiempo transcurrido: " + elapsedTime / 1000000 + " milisegundos");
-    }
-
-    @Override
-    public void notifyAlarm(Alarm a){
-        
     }
 
 }

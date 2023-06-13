@@ -1,22 +1,29 @@
-import gateway.Alarma;
-public class ProxyReliableMessageImp implements gateway.ReliableMessage,Runnable{
-    private Queue<Alarma> alarmas;
-    private ObservablePrx server;
+import java.util.Queue;
+import java.util.LinkedList;
 
-    public ProxyReliableMessageImp(ObservablePrx server) {
+import gateway.ReliableMessage;
+import gateway.ReliableMessagePrx;
+import com.zeroc.Ice.Current;
+
+
+public class ProxyReliableMessageImp implements gateway.ReliableMessage, Runnable{
+    private Queue<String> alarmas;
+    private ReliableMessagePrx server;
+
+    public ProxyReliableMessageImp(ReliableMessagePrx server) {
         this.server = server;
-        alarmas = new Queue<>();
+        alarmas = new LinkedList<>();
     }
 
     @Override
-    public void notifyAlarm(Alarma alarma) {
+    public void notifyAlarm(String alarma,Current current) {
         alarmas.add(alarma);
     }
 
     @Override
     public void run(){
         while(true){
-            Alarma alarm = null;
+            String alarm = "";
             try{
                 while(!alarmas.isEmpty()){
                     alarm = alarmas.peek();
