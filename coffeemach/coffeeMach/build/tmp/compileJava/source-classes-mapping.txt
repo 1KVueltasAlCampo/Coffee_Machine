@@ -1,25 +1,21 @@
-alarma/AlarmaService.java
- alarma.AlarmaService
+CoffeeMach.java
+ CoffeeMach
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
  alarma.Alarma
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
-interfazUsuario/Prueba.java
- interfazUsuario.Prueba
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
 McControlador/VentaRepositorio.java
  McControlador.VentaRepositorio
+pubsub/_ObservablePrxI.java
+ pubsub._ObservablePrxI
 servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 alarma/AlarmaRepositorio.java
  alarma.AlarmaRepositorio
-servicios/VentaServicePrx.java
- servicios.VentaServicePrx
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 servicios/ServicioAbastecimientoPrx.java
@@ -33,19 +29,24 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+pubsub/Observer.java
+ pubsub.Observer
+ pubsub.Observer$1
+pubsub/Observable.java
+ pubsub.Observable
+ pubsub.Observable$1
 ingrediente/IngredienteRepositorio.java
  ingrediente.IngredienteRepositorio
 monedero/MonedasRepositorio.java
  monedero.MonedasRepositorio
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+pubsub/ObservablePrx.java
+ pubsub.ObservablePrx
 servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 servicios/Moneda.java
  servicios.Moneda
+publisher_subscriber/CoffeeMachObserverImp.java
+ publisher_subscriber.CoffeeMachObserverImp
 suministro/SuministroServiceImp.java
  suministro.SuministroServiceImp
 servicios/ServicioComLogistica.java
@@ -60,12 +61,17 @@ productoReceta/RecetaRepositorio.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
-ingrediente/IngredienteService.java
- ingrediente.IngredienteService
-gateway/_ObserverPrxI.java
- gateway._ObserverPrxI
+McControlador/ControladorMQ.java
+ McControlador.ControladorMQ
+ McControlador.ControladorMQ$1
+ McControlador.ControladorMQ$2
+ McControlador.ControladorMQ$3
+ McControlador.ControladorMQ$4
+ McControlador.ControladorMQ$5
+ McControlador.ControladorMQ$6
+ McControlador.ControladorMQ$7
+ McControlador.ControladorMQ$8
+ McControlador.ControladorMQ$9
 McControlador/Venta.java
  McControlador.Venta
 monedero/DepositoMonedas.java
@@ -79,30 +85,22 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 interfaces/Repositorio.java
  interfaces.Repositorio
+servicios/VentaServicePrx.java
+ servicios.VentaServicePrx
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
-gateway/Observer.java
- gateway.Observer
- gateway.Observer$1
-gateway/ObserverPrx.java
- gateway.ObserverPrx
-gateway/Observable.java
- gateway.Observable
- gateway.Observable$1
-gateway/ObservablePrx.java
- gateway.ObservablePrx
-CoffeeMach.java
- CoffeeMach
-McControlador/ControladorMQ.java
- McControlador.ControladorMQ
- McControlador.ControladorMQ$1
- McControlador.ControladorMQ$2
- McControlador.ControladorMQ$3
- McControlador.ControladorMQ$4
- McControlador.ControladorMQ$5
- McControlador.ControladorMQ$6
- McControlador.ControladorMQ$7
- McControlador.ControladorMQ$8
- McControlador.ControladorMQ$9
-gatewayCommunication/ObserverImp.java
- gatewayCommunication.ObserverImp
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+ingrediente/IngredienteService.java
+ ingrediente.IngredienteService
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
+alarma/AlarmaService.java
+ alarma.AlarmaService

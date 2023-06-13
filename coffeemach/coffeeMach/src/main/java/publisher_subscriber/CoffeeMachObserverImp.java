@@ -1,21 +1,21 @@
-package gatewayCommunication;
+package publisher_subscriber;
 
 import java.util.ArrayList;
 
 import com.zeroc.Ice.Current;
 
 import McControlador.ControladorMQ;
-import gateway.ObservablePrx;
+import pubsub.ObservablePrx;
 
-public class ObserverImp implements gateway.Observer {
+public class CoffeeMachObserverImp implements pubsub.Observer {
 
 
-    private ObservablePrx server;
+    private ObservablePrx proxyCache;
     private ControladorMQ controler;
     
 
-    public ObserverImp(ObservablePrx server, ControladorMQ controler) {
-        this.server = server;
+    public CoffeeMachObserverImp(ObservablePrx proxyCache, ControladorMQ controler) {
+        this.proxyCache = proxyCache;
         this.controler = controler;
     }
 

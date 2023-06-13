@@ -1,4 +1,4 @@
-package gatewayCommunication;
+package publisher_subscriber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +6,14 @@ import java.util.List;
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
 
-import gateway.ObserverPrx;
+import pubsub.ObserverPrx;
 import receta.ProductoReceta;
 
-public class ObservableImp implements gateway.Observable {
+public class ServerObservableImp implements pubsub.Observable {
 
     private Communicator communicator;
     private ProductoReceta recetaService;
-    private List<ObserverPrx> observers;
+    private List<ObserverPrx> observers; //Proxy caches
 
     /**
      * @param communicator the communicator to set
@@ -29,12 +29,11 @@ public class ObservableImp implements gateway.Observable {
 		this.recetaService = recetaService;
 	}
 
-
-    public ObservableImp() {
+    public ServerObservableImp() {
         this.observers = new ArrayList<>();
     }
 
-        @Override
+    @Override
     public void attach(ObserverPrx o, Current current) {
         //asignar id 
         observers.add(o);
@@ -46,6 +45,7 @@ public class ObservableImp implements gateway.Observable {
         //Buscar el o para eliminarlo
     }
 
+    //In this case the observers are the proxy caches
     @Override
     public void notifyObservers(Current current) {
         long startTime = System.nanoTime(); // Registro del tiempo inicial

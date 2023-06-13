@@ -1,30 +1,33 @@
+package publisher_subscriber;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
 
-import gateway.ObserverPrx;
+import pubsub.ObserverPrx;
 
-public class ObservableImp implements gateway.Observable, Runnable {
+public class ProxyCacheObservableImp implements pubsub.Observable, Runnable {
 
-    private List<ObserverPrx> observers; //Machines 
-     private List<String> cacheRecipes;
+    private List<ObserverPrx> observers; //Observers
+    private List<String> cacheRecipes;
 
     private Communicator communicator;
     
-    public ObservableImp() {
+    public ProxyCacheObservableImp() {
         this.observers = new ArrayList<>();
         this.cacheRecipes = new ArrayList<>();
     }
-        /**
+
+    /**
      * @param communicator the communicator to set
      */
     public void setCommunicator(Communicator communicator) {
         this.communicator = communicator;
     }
 
-            /**
+    /**
      * @param recetas the communicator to set
      */
     public void setCacheRecipes(List<String> cacheRecipes) {
@@ -50,8 +53,9 @@ public class ObservableImp implements gateway.Observable, Runnable {
     public void run() {
 
         try {
-            for (ObserverPrx observer : observers) {
-                observer.update(cacheRecipes.toArray(new String[cacheRecipes.size()]), null);
+            for (ObserverPrx o : observers) {
+                //This converts the arraylist to an array of strings because update() was generated with Slice, it supports only primitive types
+                o.update(cacheRecipes.toArray(new String[cacheRecipes.size()]), null);
             }
             Thread.yield(); 
         } catch (Exception e) {

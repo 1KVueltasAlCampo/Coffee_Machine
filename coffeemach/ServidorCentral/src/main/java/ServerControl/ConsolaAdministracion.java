@@ -61,6 +61,7 @@ public class ConsolaAdministracion implements Runnable{
 				System.out.println("¡¡¡Opción incorrecta seleccionada!!!");
 				break;
 			}
+			
 		}
 		
 	}

@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.zeroc.Ice.*;
 import comunicacion.*;
-import gatewayCommunication.ObservableImp;
 import interfaz.ControladorRecetas;
+import publisher_subscriber.ServerObservableImp;
 import receta.ProductoReceta;
 import servicios.*;
 import ventas.VentasManager;
@@ -32,9 +32,10 @@ public class ServidorCentral {
             VentasManager ventas = new VentasManager();
             ventas.setCommunicator(communicator);
 
-            ObservableImp gateway = new ObservableImp();
+            ServerObservableImp gateway = new ServerObservableImp();
             gateway.setCommunicator(communicator);
 
+            //Endpoints
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
@@ -43,9 +44,10 @@ public class ServidorCentral {
             
             ControladorRecetas controladorRecetas = new ControladorRecetas(gateway);
             controladorRecetas.setRecetaService(recetas);
-            gateway.setRecetaService(recetas);
-            controladorRecetas.run();
 
+            gateway.setRecetaService(recetas);
+
+            controladorRecetas.run();
             adapter.activate();
             communicator.waitForShutdown();
 

@@ -5,26 +5,24 @@ servicios/_ServicioAbastecimientoPrxI.java
 alarma/Alarma.java
  alarma.Alarma
  alarma.Alarma$1
-modelo/ManejadorDatos.java
- modelo.ManejadorDatos
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
-modelo/VentasReceta.java
- modelo.VentasReceta
+ServerControl/ServerControl.java
+ ServerControl.ServerControl
 receta/ProductoReceta.java
  receta.ProductoReceta
+pubsub/_ObservablePrxI.java
+ pubsub._ObservablePrxI
 servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 modelo/AlarmaMaquina.java
  modelo.AlarmaMaquina
-modelo/RecetaIngrediente.java
- modelo.RecetaIngrediente
 modelo/Operador.java
  modelo.Operador
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
-servicios/VentaServicePrx.java
- servicios.VentaServicePrx
+modelo/ManejadorDatos.java
+ modelo.ManejadorDatos
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
 alarma/AlarmasManager.java
@@ -34,18 +32,24 @@ ventas/VentasManager.java
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
-ServerControl/ServerControl.java
- ServerControl.ServerControl
+pubsub/Observable.java
+ pubsub.Observable
+ pubsub.Observable$1
+pubsub/Observer.java
+ pubsub.Observer
+ pubsub.Observer$1
 ServerControl/ConsolaAdministracion.java
  ServerControl.ConsolaAdministracion
+pubsub/ObservablePrx.java
+ pubsub.ObservablePrx
 servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 modelo/Maquina.java
  modelo.Maquina
 servicios/Moneda.java
  servicios.Moneda
-modelo/ConexionBD.java
- modelo.ConexionBD
+ServidorCentral.java
+ ServidorCentral
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -54,51 +58,47 @@ servicios/AlarmaServicePrx.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-modelo/AsignacionMaquina.java
- modelo.AsignacionMaquina
+comunicacion/ControlComLogistica.java
+ comunicacion.ControlComLogistica
 interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
  modelo.Ingrediente
-comunicacion/ControlComLogistica.java
- comunicacion.ControlComLogistica
 modelo/Receta.java
  modelo.Receta
+publisher_subscriber/ServerObservableImp.java
+ publisher_subscriber.ServerObservableImp
 modelo/VentasMaquina.java
  modelo.VentasMaquina
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+modelo/AsignacionMaquina.java
+ modelo.AsignacionMaquina
 servicios/StringSeqHelper.java
  servicios.StringSeqHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
-gateway/Observer.java
- gateway.Observer
- gateway.Observer$1
-gateway/ObserverPrx.java
- gateway.ObserverPrx
-gateway/ObservablePrx.java
- gateway.ObservablePrx
-gateway/Observable.java
- gateway.Observable
- gateway.Observable$1
-gateway/_ObserverPrxI.java
- gateway._ObserverPrxI
-gatewayCommunication/ObservableImp.java
- gatewayCommunication.ObservableImp
+modelo/RecetaIngrediente.java
+ modelo.RecetaIngrediente
+servicios/VentaServicePrx.java
+ servicios.VentaServicePrx
+modelo/ConexionBD.java
+ modelo.ConexionBD
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
  interfaz.ControladorRecetas$4
-ServidorCentral.java
- ServidorCentral
+modelo/VentasReceta.java
+ modelo.VentasReceta
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx

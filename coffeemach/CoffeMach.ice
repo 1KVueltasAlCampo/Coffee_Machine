@@ -54,7 +54,7 @@ module servicios{
 
 }
 
-module gateway {
+module pubsub {
   sequence<string> StringArr; 
 
   interface Observer{

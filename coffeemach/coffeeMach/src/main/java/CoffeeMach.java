@@ -1,9 +1,9 @@
 import com.zeroc.Ice.*;
 
 import McControlador.ControladorMQ;
-import gateway.ObservablePrx;
-import gateway.ObserverPrx;
-import gatewayCommunication.ObserverImp;
+import publisher_subscriber.CoffeeMachObserverImp;
+import pubsub.ObservablePrx;
+import pubsub.ObserverPrx;
 
 import java.util.*;
 import servicios.*;
@@ -13,6 +13,7 @@ public class CoffeeMach {
     List<String> extPar = new ArrayList<>();
     try (Communicator communicator = Util.initialize(args, "coffeMach.cfg", extPar)) {
 
+      //Endpoint from server
       AlarmaServicePrx alarmaS = AlarmaServicePrx.checkedCast(
           communicator.propertyToProxy("alarmas")).ice_twoway();
       VentaServicePrx ventas = VentaServicePrx.checkedCast(
@@ -30,16 +31,17 @@ public class CoffeeMach {
       service.setRecetaServicePrx(recetaServicePrx);
       
 
-      ObserverImp observerImp = new ObserverImp(proxyCache,service);
+      CoffeeMachObserverImp observerImp = new CoffeeMachObserverImp(proxyCache,service);
       ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));
-
-      service.run();   
-      adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
-      adapter.activate();
-
-      ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
       
-      proxyCache.attach(prx);
+      adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
+      
+      ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
+    
+      proxyCache.attach(prx); //Register the coffee machine as an observer of the proxy cache
+
+      service.run();  
+      adapter.activate();
       communicator.waitForShutdown();
     }
   }

@@ -1,8 +1,10 @@
 import com.zeroc.Ice.*;
 
+import publisher_subscriber.ProxyCacheObservableImp;
+import publisher_subscriber.ProxyCacheObserverImp;
 
-import gateway.ObservablePrx;
-import gateway.ObserverPrx;
+import pubsub.ObservablePrx;
+import pubsub.ObserverPrx;
 
 import java.util.*;
 
@@ -11,27 +13,28 @@ public class ProxyCache {
     List<String> extPar = new ArrayList<>();
 
     try(Communicator communicator = Util.initialize(args, "proxycache.cfg", extPar)) {
+
+      //Endpoints from server
       ObservablePrx gateway = ObservablePrx.checkedCast(
         communicator.propertyToProxy("gateway")).ice_twoway();
         
       ObjectAdapter adapter = communicator.createObjectAdapter("ProxyCache");
      
-      ObservableImp proxyCache = new ObservableImp();
+      ProxyCacheObservableImp proxyCache = new ProxyCacheObservableImp();
       proxyCache.setCommunicator(communicator);
 
+      //Endpoints 
       adapter.add(proxyCache, Util.stringToIdentity("ProxyCache"));
 
-      ProxyCacheImp proxyCacheImp = new ProxyCacheImp(gateway);
+      ProxyCacheObserverImp proxyCacheImp = new ProxyCacheObserverImp(gateway);
       proxyCacheImp.setObservableImp(proxyCache);
 
       ObjectPrx objectPrx = adapter.add(proxyCacheImp, Util.stringToIdentity("proxyCache"));
-
-      adapter.activate();
-
+      
       ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
-
       gateway.attach(prx);
 
+      adapter.activate();
       communicator.waitForShutdown();
 
     }
