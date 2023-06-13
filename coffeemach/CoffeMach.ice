@@ -61,11 +61,21 @@ module gateway {
     void update(StringArr recetasNuevas);
   }
 
+  interface Alarma{
+    int tipoAlarma();
+  }
+
+  interface ReliableMessage{
+    void notifyAlarm(Alarma* a);
+  }
+  
   interface Observable{
     void attach(Observer* o);
     void detach(Observer* o);
     void notifyObservers();
   }
+
+
 
 }
 
