@@ -56,9 +56,9 @@ module servicios{
 
 module gateway {
   sequence<string> StringArr; 
-  
+
   interface Observer{
-    void update(StringArr recetasCompletas);
+    void update(StringArr recetasNuevas);
   }
 
   interface Observable{

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,21 +8,21 @@ import gateway.ObservablePrx;
 
 public class ProxyCacheImp implements gateway.Observer {
 
-    private Map<String, Object> cache = new HashMap<>();
+    private ArrayList<String> recetasCache;
 
     private ObservablePrx server;
 
     public ProxyCacheImp(ObservablePrx server) {
         this.server = server;
+        recetasCache = new ArrayList<>();
     }
 
     @Override
-    public void update(String[] recetasCompletas, Current current) {
+    public void update(String[] recetasNuevas, Current current) {
         System.out.println("Proxy Actualizado");
-        for (String string : recetasCompletas) {
-            System.out.println(string);
+        for (String receta : recetasNuevas) {
+            recetasCache.add(receta); 
         }
     }
 
-    
 }

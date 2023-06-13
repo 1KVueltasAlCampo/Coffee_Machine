@@ -78,6 +78,8 @@ servicios/StringSeqHelper.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
+ServidorCentral.java
+ ServidorCentral
 gateway/Observer.java
  gateway.Observer
  gateway.Observer$1
@@ -100,5 +102,3 @@ interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas$4
 gateway/_ObservablePrxI.java
  gateway._ObservablePrxI
-ServidorCentral.java
- ServidorCentral
