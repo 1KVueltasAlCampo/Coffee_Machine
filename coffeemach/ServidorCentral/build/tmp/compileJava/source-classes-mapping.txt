@@ -18,15 +18,12 @@ servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 modelo/AlarmaMaquina.java
  modelo.AlarmaMaquina
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+gateway/_ObservablePrxI.java
+ gateway._ObservablePrxI
 modelo/Operador.java
  modelo.Operador
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
 modelo/ManejadorDatos.java
  modelo.ManejadorDatos
 servicios/ServicioAbastecimientoPrx.java
@@ -48,8 +45,8 @@ modelo/Maquina.java
  modelo.Maquina
 servicios/Moneda.java
  servicios.Moneda
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+ServidorCentral.java
+ ServidorCentral
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -62,12 +59,13 @@ comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
 gateway/ObserverPrx.java
  gateway.ObserverPrx
-modelo/VentasReceta.java
- modelo.VentasReceta
-modelo/Ingrediente.java
- modelo.Ingrediente
 interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
+modelo/Ingrediente.java
+ modelo.Ingrediente
+gateway/Observable.java
+ gateway.Observable
+ gateway.Observable$1
 modelo/Receta.java
  modelo.Receta
 modelo/VentasMaquina.java
@@ -87,9 +85,6 @@ modelo/ConexionBD.java
  modelo.ConexionBD
 gateway/ObservablePrx.java
  gateway.ObservablePrx
-gateway/Observable.java
- gateway.Observable
- gateway.Observable$1
 gatewayCommunication/ObservableImp.java
  gatewayCommunication.ObservableImp
 interfaz/ControladorRecetas.java
@@ -98,7 +93,12 @@ interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
  interfaz.ControladorRecetas$4
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
-ServidorCentral.java
- ServidorCentral
+modelo/VentasReceta.java
+ modelo.VentasReceta
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx

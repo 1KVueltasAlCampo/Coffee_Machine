@@ -36,10 +36,17 @@ public class ObservableImp implements gateway.Observable {
 
     @Override
     public void notifyObservers(Current current) {
+        long startTime = System.nanoTime(); // Registro del tiempo inicial
+        
         for (ObserverPrx observer : observers) {
             observer.update();
         }
+        
+        long endTime = System.nanoTime(); // Registro del tiempo final
+        long elapsedTime = endTime - startTime; // Cálculo del tiempo transcurrido en nanosegundos
+        
+        // Imprimir el tiempo transcurrido en milisegundos
+        System.out.println("Tiempo transcurrido: " + elapsedTime / 1000000 + " milisegundos");
     }
 
-    
 }

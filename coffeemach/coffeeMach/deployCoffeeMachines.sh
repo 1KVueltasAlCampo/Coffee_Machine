@@ -10,7 +10,7 @@ rutaProyecto="C:\Users\Carvi\Documents\VS WorkSpace\Coffee_Machine\coffeemach\co
 numero=9097
 
 # Realizar iteración cinco veces
-for i in {1..5}
+for i in {1..3}
 do
     # Reemplazar el puerto en la línea correspondiente
     nuevaLinea=$(sed "s/-p $numero/-p $((numero+1))/" $rutaArchivo)

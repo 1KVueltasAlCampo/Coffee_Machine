@@ -64,6 +64,7 @@ module gateway {
     void detach(Observer* o);
     void notifyObservers();
   }
+
 }
 
 
