@@ -19,8 +19,8 @@ public class CoffeeMach {
           communicator.propertyToProxy("ventas")).ice_twoway();
       RecetaServicePrx recetaServicePrx = RecetaServicePrx.checkedCast(
           communicator.propertyToProxy("recetas")).ice_twoway();
-      ObservablePrx gateway = ObservablePrx.checkedCast(
-        communicator.propertyToProxy("gateway")).ice_twoway();
+      ObservablePrx proxyCache = ObservablePrx.checkedCast(
+        communicator.propertyToProxy("proxycache")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
 
@@ -29,7 +29,7 @@ public class CoffeeMach {
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);
 
-      ObserverImp observerImp = new ObserverImp(gateway,service);
+      ObserverImp observerImp = new ObserverImp(proxyCache,service);
       ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));
 
       service.run();   
@@ -38,7 +38,7 @@ public class CoffeeMach {
 
       ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
       
-      gateway.attach(prx);
+      proxyCache.attach(prx);
       communicator.waitForShutdown();
     }
   }

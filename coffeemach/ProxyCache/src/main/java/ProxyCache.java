@@ -11,10 +11,15 @@ public class ProxyCache {
     List<String> extPar = new ArrayList<>();
 
     try(Communicator communicator = Util.initialize(args, "proxycache.cfg", extPar)) {
-     ObservablePrx gateway = ObservablePrx.checkedCast(
+      ObservablePrx gateway = ObservablePrx.checkedCast(
         communicator.propertyToProxy("gateway")).ice_twoway();
         
       ObjectAdapter adapter = communicator.createObjectAdapter("ProxyCache");
+     
+      ObservableImp proxyCache = new ObservableImp();
+      proxyCache.setCommunicator(communicator);
+
+      adapter.add(proxyCache, Util.stringToIdentity("ProxyCache"));
 
       ProxyCacheImp proxyCacheImp = new ProxyCacheImp(gateway);
 
