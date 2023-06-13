@@ -6,21 +6,37 @@ import gateway.ObservablePrx;
 
 public class ProxyCacheImp implements gateway.Observer {
 
-    private ArrayList<String> recetasCache;
 
     private ObservablePrx server;
 
+    private ObservableImp observableImp;
+
     public ProxyCacheImp(ObservablePrx server) {
         this.server = server;
-        recetasCache = new ArrayList<>();
+    }
+
+            /**
+     * @param observableImp the observableImp to set
+     */
+    public void setObservableImp(ObservableImp observableImp) {
+        this.observableImp = observableImp;
     }
 
     @Override
     public void update(String[] recetasNuevas, Current current) {
         System.out.println("Proxy Actualizado");
-        for (String receta : recetasNuevas) {
-            recetasCache.add(receta); 
+
+        ArrayList<String> updatedRecipes = new ArrayList<>();
+
+        for (String recipe : recetasNuevas) {
+            updatedRecipes.add(recipe);
         }
+
+        observableImp.setCacheRecipes(updatedRecipes);
+
+        //Makes the observable proxy cache to notify all the machines
+        observableImp.notifyObservers(current);
+        
     }
 
 }

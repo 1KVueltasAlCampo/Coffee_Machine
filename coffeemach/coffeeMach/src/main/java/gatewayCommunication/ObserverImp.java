@@ -1,5 +1,7 @@
 package gatewayCommunication;
 
+import java.util.ArrayList;
+
 import com.zeroc.Ice.Current;
 
 import McControlador.ControladorMQ;
@@ -9,8 +11,8 @@ public class ObserverImp implements gateway.Observer {
 
 
     private ObservablePrx server;
-    private ControladorMQ controler; 
-
+    private ControladorMQ controler;
+    
 
     public ObserverImp(ObservablePrx server, ControladorMQ controler) {
         this.server = server;
@@ -19,10 +21,17 @@ public class ObserverImp implements gateway.Observer {
 
 
     @Override
-    public void update(String[] recetasCompletas, Current current) {
+    public void update(String[] newRecipes, Current current) {
+        ArrayList<String> updatedRecipes = new ArrayList<>();
+
+        //We cast newRecipes from array to arraylist because setUpdateRecipes() receives an arraylist of the recipes.
+        for (String recipe : newRecipes) {
+            updatedRecipes.add(recipe);
+        }
+
+        controler.setUpdatedRecipes(updatedRecipes);
+        
         controler.cargarRecetaMaquinas();
     }
 
-    
-    
 }

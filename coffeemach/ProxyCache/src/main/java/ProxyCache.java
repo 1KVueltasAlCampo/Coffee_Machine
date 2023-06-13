@@ -22,6 +22,7 @@ public class ProxyCache {
       adapter.add(proxyCache, Util.stringToIdentity("ProxyCache"));
 
       ProxyCacheImp proxyCacheImp = new ProxyCacheImp(gateway);
+      proxyCacheImp.setObservableImp(proxyCache);
 
       ObjectPrx objectPrx = adapter.add(proxyCacheImp, Util.stringToIdentity("proxyCache"));
 

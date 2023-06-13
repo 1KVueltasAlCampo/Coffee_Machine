@@ -79,20 +79,20 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 interfaces/Repositorio.java
  interfaces.Repositorio
-CoffeeMach.java
- CoffeeMach
+interfazUsuario/Interfaz.java
+ interfazUsuario.Interfaz
 gateway/Observer.java
  gateway.Observer
  gateway.Observer$1
 gateway/ObserverPrx.java
  gateway.ObserverPrx
-gatewayCommunication/ObserverImp.java
- gatewayCommunication.ObserverImp
-gateway/ObservablePrx.java
- gateway.ObservablePrx
 gateway/Observable.java
  gateway.Observable
  gateway.Observable$1
+gateway/ObservablePrx.java
+ gateway.ObservablePrx
+CoffeeMach.java
+ CoffeeMach
 McControlador/ControladorMQ.java
  McControlador.ControladorMQ
  McControlador.ControladorMQ$1
@@ -104,5 +104,5 @@ McControlador/ControladorMQ.java
  McControlador.ControladorMQ$7
  McControlador.ControladorMQ$8
  McControlador.ControladorMQ$9
-interfazUsuario/Interfaz.java
- interfazUsuario.Interfaz
+gatewayCommunication/ObserverImp.java
+ gatewayCommunication.ObserverImp

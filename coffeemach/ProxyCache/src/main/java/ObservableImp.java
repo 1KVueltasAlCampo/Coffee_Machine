@@ -6,19 +6,29 @@ import com.zeroc.Ice.Current;
 
 import gateway.ObserverPrx;
 
-public class ObservableImp implements gateway.Observable {
+public class ObservableImp implements gateway.Observable, Runnable {
 
-    private List<ObserverPrx> observers;
+    private List<ObserverPrx> observers; //Machines 
+     private List<String> cacheRecipes;
+
     private Communicator communicator;
-
+    
     public ObservableImp() {
         this.observers = new ArrayList<>();
+        this.cacheRecipes = new ArrayList<>();
     }
         /**
      * @param communicator the communicator to set
      */
     public void setCommunicator(Communicator communicator) {
         this.communicator = communicator;
+    }
+
+            /**
+     * @param recetas the communicator to set
+     */
+    public void setCacheRecipes(List<String> cacheRecipes) {
+        this.cacheRecipes = cacheRecipes;
     }
  
     @Override
@@ -33,17 +43,21 @@ public class ObservableImp implements gateway.Observable {
 
     @Override
     public void notifyObservers(Current current) {
-        long startTime = System.nanoTime(); // Registro del tiempo inicial
-        
-        for (ObserverPrx observer : observers) {
-            
+        run();
+    }
+
+    @Override
+    public void run() {
+
+        try {
+            for (ObserverPrx observer : observers) {
+                observer.update(cacheRecipes.toArray(new String[cacheRecipes.size()]), null);
+            }
+            Thread.yield(); 
+        } catch (Exception e) {
+            System.out.println("Something went wrong while sending the recipes to the machines");
         }
-        
-        long endTime = System.nanoTime(); // Registro del tiempo final
-        long elapsedTime = endTime - startTime; // Cálculo del tiempo transcurrido en nanosegundos
-        
-        // Imprimir el tiempo transcurrido en milisegundos
-        System.out.println("Tiempo transcurrido proxy: " + elapsedTime / 1000000 + " milisegundos");
+
     }
     
 }

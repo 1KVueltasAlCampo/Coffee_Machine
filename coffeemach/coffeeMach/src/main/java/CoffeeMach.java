@@ -28,6 +28,7 @@ public class CoffeeMach {
       service.setAlarmaService(alarmaS);
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);
+      
 
       ObserverImp observerImp = new ObserverImp(proxyCache,service);
       ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));

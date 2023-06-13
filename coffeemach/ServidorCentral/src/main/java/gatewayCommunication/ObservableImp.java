@@ -36,12 +36,14 @@ public class ObservableImp implements gateway.Observable {
 
         @Override
     public void attach(ObserverPrx o, Current current) {
+        //asignar id 
         observers.add(o);
     }
 
     @Override
     public void detach(ObserverPrx o, Current current) {
         observers.remove(o);
+        //Buscar el o para eliminarlo
     }
 
     @Override
