@@ -29,11 +29,10 @@ public class CoffeeMach {
       service.setAlarmaService(alarmaS);
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);
-      
 
       CoffeeMachObserverImp observerImp = new CoffeeMachObserverImp(proxyCache,service);
       ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));
-      
+
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));
       
       ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
