@@ -1,7 +1,5 @@
 package modelo;
 
-import gateway.ObserverPrx;
-
 public class Maquina {
 
 	private int id;
@@ -27,7 +25,5 @@ public class Maquina {
 	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	
-	
-	
+
 }

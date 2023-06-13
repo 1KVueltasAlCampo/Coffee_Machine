@@ -17,9 +17,12 @@ public class ObserverImp implements gateway.Observer {
         this.controler = controler;
     }
 
+
     @Override
-    public void update(Current current) {
+    public void update(String[] recetasCompletas, Current current) {
         controler.cargarRecetaMaquinas();
     }
+
+    
     
 }

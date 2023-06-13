@@ -16,8 +16,12 @@ public class ProxyCacheImp implements gateway.Observer {
     }
 
     @Override
-    public void update(Current current) {
+    public void update(String[] recetasCompletas, Current current) {
         System.out.println("Proxy Actualizado");
+        for (String string : recetasCompletas) {
+            System.out.println(string);
+        }
     }
+
     
 }

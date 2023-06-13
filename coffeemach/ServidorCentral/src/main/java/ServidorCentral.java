@@ -43,6 +43,7 @@ public class ServidorCentral {
             
             ControladorRecetas controladorRecetas = new ControladorRecetas(gateway);
             controladorRecetas.setRecetaService(recetas);
+            gateway.setRecetaService(recetas);
             controladorRecetas.run();
 
             adapter.activate();

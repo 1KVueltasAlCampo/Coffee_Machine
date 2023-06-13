@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import gatewayCommunication.ObservableImp;
+
 import receta.ProductoReceta;
 import servicios.*;
 
-import com.zeroc.Ice.Current;
 
 public class ControladorRecetas implements Runnable {
 
@@ -145,6 +145,11 @@ public class ControladorRecetas implements Runnable {
 
 		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String[] recetasCompletas = recetaService.consultarProductos(null);
+				for (String s: recetasCompletas) {
+					System.out.println(s);
+					System.out.println("------------------------");
+				}
 				gateway.notifyObservers(null);
 			}
 		});

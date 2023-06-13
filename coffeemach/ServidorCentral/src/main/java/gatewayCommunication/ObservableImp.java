@@ -7,10 +7,12 @@ import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
 
 import gateway.ObserverPrx;
+import receta.ProductoReceta;
 
 public class ObservableImp implements gateway.Observable {
 
     private Communicator communicator;
+    private ProductoReceta recetaService;
     private List<ObserverPrx> observers;
 
     /**
@@ -19,6 +21,14 @@ public class ObservableImp implements gateway.Observable {
     public void setCommunicator(Communicator communicator) {
         this.communicator = communicator;
     }
+
+    	/**
+	 * @param recetaService the recetaService to set
+	 */
+	public void setRecetaService(ProductoReceta recetaService) {
+		this.recetaService = recetaService;
+	}
+
 
     public ObservableImp() {
         this.observers = new ArrayList<>();
@@ -37,9 +47,12 @@ public class ObservableImp implements gateway.Observable {
     @Override
     public void notifyObservers(Current current) {
         long startTime = System.nanoTime(); // Registro del tiempo inicial
+
+        //This list is a return of a query which contains strings with the recipe and its ingredients
+        String[] recetasCompletas = recetaService.consultarProductos(current);
         
         for (ObserverPrx observer : observers) {
-            observer.update();
+            observer.update(recetasCompletas, null);
         }
         
         long endTime = System.nanoTime(); // Registro del tiempo final

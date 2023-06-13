@@ -36,7 +36,7 @@ public class ObservableImp implements gateway.Observable {
         long startTime = System.nanoTime(); // Registro del tiempo inicial
         
         for (ObserverPrx observer : observers) {
-            observer.update();
+            
         }
         
         long endTime = System.nanoTime(); // Registro del tiempo final
