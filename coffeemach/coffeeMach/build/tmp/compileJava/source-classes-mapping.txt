@@ -60,21 +60,12 @@ productoReceta/RecetaRepositorio.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-McControlador/ControladorMQ.java
- McControlador.ControladorMQ
- McControlador.ControladorMQ$1
- McControlador.ControladorMQ$2
- McControlador.ControladorMQ$3
- McControlador.ControladorMQ$4
- McControlador.ControladorMQ$5
- McControlador.ControladorMQ$6
- McControlador.ControladorMQ$7
- McControlador.ControladorMQ$8
- McControlador.ControladorMQ$9
+gateway/_ObservablePrxI.java
+ gateway._ObservablePrxI
 ingrediente/IngredienteService.java
  ingrediente.IngredienteService
-interfazUsuario/Interfaz.java
- interfazUsuario.Interfaz
+gateway/_ObserverPrxI.java
+ gateway._ObserverPrxI
 McControlador/Venta.java
  McControlador.Venta
 monedero/DepositoMonedas.java
@@ -102,7 +93,16 @@ gateway/ObservablePrx.java
 gateway/Observable.java
  gateway.Observable
  gateway.Observable$1
-gateway/_ObserverPrxI.java
- gateway._ObserverPrxI
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
+McControlador/ControladorMQ.java
+ McControlador.ControladorMQ
+ McControlador.ControladorMQ$1
+ McControlador.ControladorMQ$2
+ McControlador.ControladorMQ$3
+ McControlador.ControladorMQ$4
+ McControlador.ControladorMQ$5
+ McControlador.ControladorMQ$6
+ McControlador.ControladorMQ$7
+ McControlador.ControladorMQ$8
+ McControlador.ControladorMQ$9
+interfazUsuario/Interfaz.java
+ interfazUsuario.Interfaz
