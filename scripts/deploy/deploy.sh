@@ -27,7 +27,7 @@ sshpass -p $password scp ../../coffeemach/ServidorCentral/build/libs/ServidorCen
 
 echo "Deploying to xhgrid5"
 sshpass -p $password ssh swarch@xhgrid5 "rm -rf $path && mkdir -p $path"
-sshpass -p $password scp ../../coffeemach/reliableMessage/build/libs/ReliableMessage.jar swarch@xhgrid5:./$path
+sshpass -p $password scp ../../coffeemach/reliableMessage/build/libs/reliableMessage.jar swarch@xhgrid5:./$path
 
 echo "Deploying to xhgrid7"
 sshpass -p $password ssh swarch@xhgrid7 "rm -rf $path && mkdir -p $path"
