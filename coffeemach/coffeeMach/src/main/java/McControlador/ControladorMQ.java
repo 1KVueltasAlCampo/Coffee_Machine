@@ -16,15 +16,15 @@ import com.zeroc.Ice.Current;
 
 import alarma.Alarma;
 import alarma.AlarmaRepositorio;
+import gateway.ReliableMessagePrx;
 import ingrediente.Ingrediente;
 import ingrediente.IngredienteRepositorio;
-import gatewayCommunication.ObserverImp;
 
 public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 	private AlarmaServicePrx alarmaServicePrx;
 	private VentaServicePrx ventasService;
-	private ObserverImp gateway;
+	private ReliableMessagePrx gateway;
 
 	private final static int INGREDIENTES=1;
 	private final static int MONEDAS=2;
@@ -54,6 +54,11 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 	public void setAlarmaService(AlarmaServicePrx a) {
 		alarmaServicePrx = a;
 	}
+
+	public void setGateway(ReliableMessagePrx g) {
+		gateway = g;
+	}
+
 
 	private RecetaServicePrx recetaServicePrx;
 
@@ -157,7 +162,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			// ResetAlarmas
 
 			// Envio a Servidor
-			gateway.sendAlarm(ABASTECIMIENTO+"@s"+codMaquina+"@s"+idAlarma+" "+"@s"+cantidad);
+			gateway.notifyAlarm(ABASTECIMIENTO+"@s"+codMaquina+"@s"+idAlarma+" "+"@s"+cantidad);
 			//alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
 		}
 	}
@@ -325,7 +330,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 								+ "Se genero una alarma de: Mantenimiento"
 								+ "\n");
 
-				gateway.sendAlarm(MALFUN+"@s"+codMaquina+"@s"+"Se requiere mantenimiento");
+				gateway.notifyAlarm(MALFUN+"@s"+codMaquina+"@s"+"Se requiere mantenimiento");
 				//alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
 
 				alarmas.addElement("1", temp);
@@ -426,7 +431,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 					// Enviar SCA
 
-					gateway.sendAlarm(INGREDIENTES+"@s"+ing.getNombre()+"@s"+codMaquina);
+					gateway.notifyAlarm(INGREDIENTES+"@s"+ing.getNombre()+"@s"+codMaquina);
 					//alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
 
 					frame.getTextAreaAlarmas().setText(
@@ -446,7 +451,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 				alarmas.addElement(codAlarma + "", alIng);
 
 				// Enviar SCA
-				gateway.sendAlarm(INGREDIENTES+"@s"+ing.getNombre()+"@s"+codMaquina);
+				gateway.notifyAlarm(INGREDIENTES+"@s"+ing.getNombre()+"@s"+codMaquina);
 				//alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
 
 				frame.getTextAreaAlarmas().setText(
@@ -640,7 +645,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			if (alarmas.findByKey("2") == null) {
 				alarmas.addElement("2", alMon);
 
-				gateway.sendAlarm(MONEDAS+"@s"+Moneda.CIEN+"@s"+codMaquina);
+				gateway.notifyAlarm(MONEDAS+"@s"+Moneda.CIEN+"@s"+codMaquina);
 				//alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.CIEN, codMaquina);
 				frame.getTextAreaAlarmas().setText(
 						frame.getTextAreaAlarmas().getText()
@@ -657,7 +662,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			alarmas.addElement("3", alMon);
 
 			// Enviar SCA
-			gateway.sendAlarm(MONEDAS+"@s"+Moneda.CIEN+"@s"+codMaquina);
+			gateway.notifyAlarm(MONEDAS+"@s"+Moneda.CIEN+"@s"+codMaquina);
 			//alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.CIEN, codMaquina);
 
 			frame.getTextAreaAlarmas().setText(
@@ -678,7 +683,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 				alarmas.addElement("4", alMon);
 
 				// Enviar SCA
-				gateway.sendAlarm(MONEDAS+"@s"+Moneda.DOCIENTOS+"@s"+codMaquina);
+				gateway.notifyAlarm(MONEDAS+"@s"+Moneda.DOCIENTOS+"@s"+codMaquina);
 				//alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.DOCIENTOS, codMaquina);
 
 				frame.getTextAreaAlarmas().setText(
@@ -696,7 +701,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			alarmas.addElement("5", alMon);
 
 			// Enviar SCA
-			gateway.sendAlarm(MONEDAS+"@s"+Moneda.DOCIENTOS+"@s"+codMaquina);
+			gateway.notifyAlarm(MONEDAS+"@s"+Moneda.DOCIENTOS+"@s"+codMaquina);
 			//alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.DOCIENTOS, codMaquina);
 
 			frame.getTextAreaAlarmas()
@@ -719,7 +724,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 				// Enviar SCA
 
-				gateway.sendAlarm(MONEDAS+"@s"+Moneda.QUINIENTOS+"@s"+codMaquina);
+				gateway.notifyAlarm(MONEDAS+"@s"+Moneda.QUINIENTOS+"@s"+codMaquina);
 				//alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
 
 				frame.getTextAreaAlarmas().setText(
@@ -734,8 +739,8 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			Alarma alMon = new Alarma("7",
 					"ESTADO CRITICO: Faltan monedas de 500", new Date());
 			alarmas.addElement("7", alMon);
-			gateway.sendAlarm(MONEDAS+"@s"+Moneda.QUINIENTOS+"@s"+codMaquina);
-			alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
+			gateway.notifyAlarm(MONEDAS+"@s"+Moneda.QUINIENTOS+"@s"+codMaquina);
+			//alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
 
 			frame.getTextAreaAlarmas().setText(
 					frame.getTextAreaAlarmas().getText()

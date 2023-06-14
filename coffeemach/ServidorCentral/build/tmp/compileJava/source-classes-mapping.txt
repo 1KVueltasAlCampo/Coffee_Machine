@@ -72,8 +72,9 @@ servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
 gateway/_ObserverPrxI.java
  gateway._ObserverPrxI
-gatewayCommunication/RMImp.java
- gatewayCommunication.RMImp
+gateway/ReliableMessage.java
+ gateway.ReliableMessage
+ gateway.ReliableMessage$1
 servicios/Moneda.java
  servicios.Moneda
 ServidorCentral.java
@@ -108,6 +109,5 @@ servicios/MapStrIntHelper.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-gateway/ReliableMessage.java
- gateway.ReliableMessage
- gateway.ReliableMessage$1
+gatewayCommunication/RMImp.java
+ gatewayCommunication.RMImp

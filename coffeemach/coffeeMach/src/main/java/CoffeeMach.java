@@ -3,6 +3,7 @@ import com.zeroc.Ice.*;
 import McControlador.ControladorMQ;
 import gateway.ObservablePrx;
 import gateway.ObserverPrx;
+import gateway.ReliableMessagePrx;
 import gatewayCommunication.ObserverImp;
 
 import java.util.*;
@@ -21,6 +22,8 @@ public class CoffeeMach {
           communicator.propertyToProxy("recetas")).ice_twoway();
       ObservablePrx proxyCache = ObservablePrx.checkedCast(
         communicator.propertyToProxy("proxycache")).ice_twoway();
+      ReliableMessagePrx reliableMessage = ReliableMessagePrx.checkedCast(
+        communicator.propertyToProxy("reliableMessage")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
 
@@ -28,6 +31,7 @@ public class CoffeeMach {
       service.setAlarmaService(alarmaS);
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);
+      service.setGateway(reliableMessage);
 
       ObserverImp observerImp = new ObserverImp(proxyCache,service);
       ObjectPrx objectPrx = adapter.add(observerImp, Util.stringToIdentity("observer"));
