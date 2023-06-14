@@ -7,7 +7,8 @@ start=40
 function gradleBuild {
     id=$1
     newMachineId=$((start+id))
-    sed -i "s/^CoffeMach.Endpoints=default -h hgrid22 -p 90962/CoffeMach.Endpoints=default -h hgrid$newMachineId -p 90962" ../coffeeMach/src/main/resources/coffeMach.cfg
+    sed -i "s|^CoffeMach.Endpoints=default -h hgrid22 -p 90962|CoffeMach.Endpoints=default -h hgrid$newMachineId -p 90962|" ../coffeeMach/src/main/resources/coffeMach.cfg
+
     sed -i "s/^1/$newMachineId/" ../coffeeMach/codMaquina.cafe
     .././gradlew build -p ../coffeeMach &
     wait
