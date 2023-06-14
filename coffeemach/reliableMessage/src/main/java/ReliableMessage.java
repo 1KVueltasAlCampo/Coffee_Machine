@@ -16,8 +16,9 @@ public class ReliableMessage {
 
         try (Communicator communicator = Util.initialize(args, "ReliableMessage.cfg", extPar)) {
 
-            ReliableMessagePrx gateway = ReliableMessagePrx.checkedCast(communicator.propertyToProxy("gateway")).ice_twoway();
+            
 
+            ReliableMessagePrx gateway = ReliableMessagePrx.checkedCast(communicator.propertyToProxy("rm")).ice_twoway();
             ObjectAdapter adapter = communicator.createObjectAdapter("ProxyRM");
             /*
             ObservableImp proxyRM = new ObservableImp();
