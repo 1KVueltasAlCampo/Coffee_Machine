@@ -4,6 +4,7 @@ import java.util.List;
 import com.zeroc.Ice.*;
 import comunicacion.*;
 import gatewayCommunication.ObservableImp;
+import gatewayCommunication.RMImp;
 import interfaz.ControladorRecetas;
 import receta.ProductoReceta;
 import servicios.*;
@@ -35,11 +36,15 @@ public class ServidorCentral {
             ObservableImp gateway = new ObservableImp();
             gateway.setCommunicator(communicator);
 
+            RMImp reliableMessage = new RMImp();
+            reliableMessage.setCommunicator(communicator);
+
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
             adapter.add(gateway, Util.stringToIdentity("Gateway"));
+            adapter.add(reliableMessage, Util.stringToIdentity("ReliableMessage"));
             
             ControladorRecetas controladorRecetas = new ControladorRecetas(gateway);
             controladorRecetas.setRecetaService(recetas);

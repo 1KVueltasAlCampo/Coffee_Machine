@@ -77,8 +77,8 @@ gateway/ReliableMessage.java
  gateway.ReliableMessage$1
 servicios/Moneda.java
  servicios.Moneda
-ServidorCentral.java
- ServidorCentral
+gatewayCommunication/RMImp.java
+ gatewayCommunication.RMImp
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 interfaz/InterfazRecetas.java
@@ -109,5 +109,5 @@ servicios/MapStrIntHelper.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-gatewayCommunication/RMImp.java
- gatewayCommunication.RMImp
+ServidorCentral.java
+ ServidorCentral
