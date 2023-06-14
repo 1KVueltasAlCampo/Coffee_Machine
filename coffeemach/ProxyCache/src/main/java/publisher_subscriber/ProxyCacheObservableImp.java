@@ -46,7 +46,15 @@ public class ProxyCacheObservableImp implements pubsub.Observable, Runnable {
 
     @Override
     public void notifyObservers(Current current) {
+        long startTime = System.nanoTime(); //Registro del tiempo inicial
+       
         run();
+        
+        long endTime = System.nanoTime(); //Registro del tiempo final
+        long elapsedTime = endTime - startTime; //Cálculo del tiempo transcurrido en nanosegundos
+        
+        //Tiempo transcurrido en milisegundos
+        System.out.println("Tiempo transcurrido: " + elapsedTime / 1000000 + " milisegundos");
     }
 
     @Override
@@ -59,7 +67,7 @@ public class ProxyCacheObservableImp implements pubsub.Observable, Runnable {
             }
             Thread.yield(); 
         } catch (Exception e) {
-            System.out.println("Something went wrong while sending the recipes to the machines");
+            System.out.println("Something went wrong while sending the recipes to the observers");
         }
 
     }

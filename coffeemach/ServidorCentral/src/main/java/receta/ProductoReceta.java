@@ -133,4 +133,17 @@ public class ProductoReceta implements RecetaService {
         return ret;
     }
 
+    public boolean consultarSiRecetaTieneIngredientesAsociados(int idReceta) {
+        ConexionBD cbd = new ConexionBD(communicator);
+        cbd.conectarBaseDatos();
+        ManejadorDatos md = new ManejadorDatos();
+        md.setConexion(cbd.getConnection());
+
+        boolean ret = md.consultarSiRecetaTieneIngredientesAsociados(idReceta);
+
+        cbd.cerrarConexion();
+
+        return ret;
+    } 
+
 }
