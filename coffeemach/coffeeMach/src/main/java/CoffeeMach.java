@@ -43,7 +43,8 @@ public class CoffeeMach {
     
       proxyCache.attach(prx); //Register the coffee machine as an observer of the proxy cache
 
-      service.run();  
+      service.run();
+      System.out.println("Hola, deberia estar corriendo");
       adapter.activate();
       communicator.waitForShutdown();
     }

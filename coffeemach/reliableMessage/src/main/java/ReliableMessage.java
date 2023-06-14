@@ -28,10 +28,10 @@ public class ReliableMessage {
             */
 
             ProxyReliableMessageImp proxyReliableMessageImp = new ProxyReliableMessageImp(gateway);
+            adapter.add(proxyReliableMessageImp, Util.stringToIdentity("ProxyRM"));
             //proxyReliableMessageImp.setCommunicator(communicator);
 
-            ObjectPrx objectPrx = adapter.add(proxyReliableMessageImp, Util.stringToIdentity("ProxyRM"));
-
+            System.out.println("Reliable Message running");
             proxyReliableMessageImp.run();
 
             adapter.activate();

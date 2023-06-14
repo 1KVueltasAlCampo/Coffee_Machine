@@ -33,7 +33,7 @@ public class ProxyCache {
       
       ObserverPrx prx = ObserverPrx.uncheckedCast(objectPrx);
       gateway.attach(prx);
-
+      System.out.println("ProxyCache running");
       adapter.activate();
       communicator.waitForShutdown();
 
