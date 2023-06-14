@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
-
 import pubsub.ObserverPrx;
 import receta.ProductoReceta;
 
@@ -14,7 +13,6 @@ public class ServerObservableImp implements pubsub.Observable, Runnable {
     private Communicator communicator;
     private ProductoReceta recetaService;
     private List<ObserverPrx> observers; //Proxy caches
-    private boolean allObserversNotified = false;
 
     /**
      * @param communicator the communicator to set
@@ -30,12 +28,9 @@ public class ServerObservableImp implements pubsub.Observable, Runnable {
 		this.recetaService = recetaService;
 	}
 
+
     public ServerObservableImp() {
         this.observers = new ArrayList<>();
-    }
-
-    public boolean isAllObserversNotified() {
-        return allObserversNotified;
     }
 
     @Override
@@ -73,8 +68,6 @@ public class ServerObservableImp implements pubsub.Observable, Runnable {
             for (ObserverPrx o : observers) {
                 o.update(recetasCompletas, null);
             }
-
-            allObserversNotified = true;
 
         } catch (Exception e) {
             System.out.println("Something went wrong while sending the recipes to the observers");

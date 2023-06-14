@@ -14,6 +14,7 @@ module servicios{
       StringSeq asignacionMaquina(int codigoOperador);
 	    StringSeq asignacionMaquinasDesabastecidas(int codigoOperador);
 	    bool inicioSesion(int codigoOperador, string password);
+      void receiveAlarms(StringArr alarms);
     }
 
     interface ServicioAbastecimiento {
@@ -51,7 +52,13 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
+    interface logisticCommunication {
+      void registerLogisticCenter(ServicioComLogistica* scl);
+      void sendAlarmsToLogistic();
+    }
+
 }
+
 
 module pubsub {
   sequence<string> StringArr; 

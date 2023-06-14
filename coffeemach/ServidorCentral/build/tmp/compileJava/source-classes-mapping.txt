@@ -34,18 +34,18 @@ servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 modelo/Maquina.java
  modelo.Maquina
-servicios/ServicioComLogistica.java
- servicios.ServicioComLogistica
- servicios.ServicioComLogistica$1
+servicios/VentaServicePrx.java
+ servicios.VentaServicePrx
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-comunicacion/ControlComLogistica.java
- comunicacion.ControlComLogistica
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 modelo/Receta.java
  modelo.Receta
-publisher_subscriber/ServerObservableImp.java
- publisher_subscriber.ServerObservableImp
+modelo/ConexionBD.java
+ modelo.ConexionBD
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
@@ -55,22 +55,18 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 RM/ReliableMessagePrx.java
  RM.ReliableMessagePrx
-interfaz/ControladorRecetas.java
- interfaz.ControladorRecetas
- interfaz.ControladorRecetas$1
- interfaz.ControladorRecetas$2
- interfaz.ControladorRecetas$3
- interfaz.ControladorRecetas$4
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+modelo/VentasReceta.java
+ modelo.VentasReceta
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 receta/ProductoReceta.java
  receta.ProductoReceta
 pubsub/_ObservablePrxI.java
  pubsub._ObservablePrxI
-servicios/_ServicioComLogisticaPrxI.java
- servicios._ServicioComLogisticaPrxI
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 reliable_message/RMImp.java
  reliable_message.RMImp
 servicios/ServicioAbastecimientoPrx.java
@@ -79,8 +75,8 @@ pubsub/ObservablePrx.java
  pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
-ServidorCentral.java
- ServidorCentral
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 interfaz/InterfazRecetas.java
@@ -96,18 +92,29 @@ modelo/AsignacionMaquina.java
  modelo.AsignacionMaquina
 modelo/RecetaIngrediente.java
  modelo.RecetaIngrediente
-servicios/VentaServicePrx.java
- servicios.VentaServicePrx
-modelo/ConexionBD.java
- modelo.ConexionBD
-pubsub/ObserverPrx.java
- pubsub.ObserverPrx
-pubsub/_ObserverPrxI.java
- pubsub._ObserverPrxI
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+comunicacion/ControlComLogistica.java
+ comunicacion.ControlComLogistica
+servicios/logisticCommunicationPrx.java
+ servicios.logisticCommunicationPrx
+servicios/_ServicioComLogisticaPrxI.java
+ servicios._ServicioComLogisticaPrxI
+servicios/logisticCommunication.java
+ servicios.logisticCommunication
+ servicios.logisticCommunication$1
+publisher_subscriber/ServerObservableImp.java
+ publisher_subscriber.ServerObservableImp
+servicios/ServicioComLogistica.java
+ servicios.ServicioComLogistica
+ servicios.ServicioComLogistica$1
+servicios/_logisticCommunicationPrxI.java
+ servicios._logisticCommunicationPrxI
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
+interfaz/ControladorRecetas.java
+ interfaz.ControladorRecetas
+ interfaz.ControladorRecetas$1
+ interfaz.ControladorRecetas$2
+ interfaz.ControladorRecetas$3
+ interfaz.ControladorRecetas$4
+ServidorCentral.java
+ ServidorCentral

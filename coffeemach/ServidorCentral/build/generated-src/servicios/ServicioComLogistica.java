@@ -23,6 +23,8 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
 
     boolean inicioSesion(int codigoOperador, String password, com.zeroc.Ice.Current current);
 
+    void receiveAlarms(String[] alarms, com.zeroc.Ice.Current current);
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -112,6 +114,24 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveAlarms(ServicioComLogistica obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String[] iceP_alarms;
+        iceP_alarms = istr.readStringSeq();
+        inS.endReadParams();
+        obj.receiveAlarms(iceP_alarms, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -121,7 +141,8 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "inicioSesion"
+        "inicioSesion",
+        "receiveAlarms"
     };
 
     /** @hidden */
@@ -164,6 +185,10 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
             case 6:
             {
                 return _iceD_inicioSesion(this, in, current);
+            }
+            case 7:
+            {
+                return _iceD_receiveAlarms(this, in, current);
             }
         }
 

@@ -1,5 +1,5 @@
 <state>
-  <timestamp value='1686749165628' />
+  <timestamp value='1686764983272' />
   <sourceSet name='default'>
     <source name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\CoffeMach.ice'>
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\ServicioComLogistica.java' />
@@ -8,6 +8,7 @@
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\AlarmaService.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\VentaService.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\RecetaService.java' />
+      <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\logisticCommunication.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\pubsub\Observer.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\pubsub\Observable.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\RM\ReliableMessage.java' />
@@ -23,6 +24,8 @@
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\_VentaServicePrxI.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\RecetaServicePrx.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\_RecetaServicePrxI.java' />
+      <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\logisticCommunicationPrx.java' />
+      <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\servicios\_logisticCommunicationPrxI.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\pubsub\ObserverPrx.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\pubsub\_ObserverPrxI.java' />
       <file name='C:\Users\Carvi\Desktop\Coffee_Machine\coffeemach\ServidorCentral\build\generated-src\pubsub\ObservablePrx.java' />

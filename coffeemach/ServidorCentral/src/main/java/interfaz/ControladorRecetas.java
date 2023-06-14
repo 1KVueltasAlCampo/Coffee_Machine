@@ -1,15 +1,13 @@
 package interfaz;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+import comunicacion.ControlComLogistica;
 import publisher_subscriber.ServerObservableImp;
 import receta.ProductoReceta;
 
@@ -20,11 +18,14 @@ public class ControladorRecetas implements Runnable {
 
 	private ServerObservableImp gateway;
 
+	private ControlComLogistica logistic;
+
 	//This variable is used to validate if a new recipe has ingredients associated
 	private int idLastRecipeCreated = 0;
 
-	public ControladorRecetas(ServerObservableImp gateway) {
+	public ControladorRecetas(ServerObservableImp gateway, ControlComLogistica logistic) {
 		this.gateway = gateway;
+		this.logistic = logistic;
 	}
 
 	/**
@@ -167,6 +168,8 @@ public class ControladorRecetas implements Runnable {
 
 		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				logistic.sendAlarmsToLogistic(null);
 				
 				//if(!recetaService.consultarSiRecetaTieneIngredientesAsociados(idLastRecipeCreated)) {
 				//	JOptionPane.showMessageDialog(iR, "La receta debee tener ingredientes asociados", "Error", JOptionPane.WARNING_MESSAGE);
