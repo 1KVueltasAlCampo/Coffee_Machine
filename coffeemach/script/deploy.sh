@@ -22,7 +22,10 @@ sshpass -p $password ssh $server_id "rm -rf $path && mkdir -p $path"
 sshpass -p $password scp ../ServidorCentral/build/libs/ServidorCentral.jar $server_id:./$path
 
 sshpass -p $password ssh swarch@xhgrid5 "rm -rf $path && mkdir -p $path"
-sshpass -p $password scp ../ReliableMessage/build/libs/ReliableMessage.jar swarch@xhgrid5:./$path
+sshpass -p $password scp ../reliableMessage/build/libs/ReliableMessage.jar swarch@xhgrid5:./$path
+
+sshpass -p $password ssh swarch@xhgrid7 "rm -rf $path && mkdir -p $path"
+sshpass -p $password scp ../ProxyCache/build/libs/ProxyCache.jar swarch@xhgrid7:./$path
 
 for ((i = 0; i < ${#array_machines[@]}; i++)); do
     machine=${array_machines[i]}
