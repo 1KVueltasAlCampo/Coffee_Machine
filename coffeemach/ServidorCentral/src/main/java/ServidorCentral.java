@@ -11,6 +11,7 @@ import ventas.VentasManager;
 import ServerControl.*;
 import alarma.Alarma;
 import alarma.AlarmasManager;
+import reliable_message.RMImp;
 
 public class ServidorCentral {
 
@@ -35,12 +36,16 @@ public class ServidorCentral {
             ServerObservableImp gateway = new ServerObservableImp();
             gateway.setCommunicator(communicator);
 
+            RMImp reliableMessage = new RMImp();
+            reliableMessage.setCommunicator(communicator);
+
             //Endpoints
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
             adapter.add(gateway, Util.stringToIdentity("Gateway"));
+            adapter.add(reliableMessage, Util.stringToIdentity("ReliableMessage"));
             
             ControladorRecetas controladorRecetas = new ControladorRecetas(gateway);
             controladorRecetas.setRecetaService(recetas);

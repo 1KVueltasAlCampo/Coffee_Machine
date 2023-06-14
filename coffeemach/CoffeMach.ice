@@ -1,4 +1,3 @@
-
 module servicios{
 
     sequence<string> StringArr;
@@ -67,6 +66,12 @@ module pubsub {
     void notifyObservers();
   }
 
+}
+
+module RM {
+    interface ReliableMessage{
+      void notifyAlarm(string alarma);
+    }
 }
 
 
