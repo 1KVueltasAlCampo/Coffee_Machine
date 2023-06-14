@@ -1,18 +1,9 @@
-package gatewayCommunication;
-
-import java.util.ArrayList;
-import java.util.List;
-
+package publisher_subscriber;
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
-
-import gateway.ObserverPrx;
-import receta.ProductoReceta;
-import servicios.AlarmaService;
 import servicios.AlarmaServicePrx;
-import alarma.Alarma;
 
-public class RMImp implements gateway.ReliableMessage {
+public class RMImp implements RM.ReliableMessage {
 
     private Communicator communicator;
     private final static int INGREDIENTES=1;

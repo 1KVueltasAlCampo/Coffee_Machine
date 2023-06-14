@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import gatewayCommunication.ObservableImp;
-
+import publisher_subscriber.ServerObservableImp;
 import receta.ProductoReceta;
 import servicios.*;
 
@@ -16,9 +15,9 @@ public class ControladorRecetas implements Runnable {
 
 	private ProductoReceta recetaService;
 
-	private ObservableImp gateway;
+	private ServerObservableImp gateway;
 
-	public ControladorRecetas(ObservableImp gateway) {
+	public ControladorRecetas(ServerObservableImp gateway) {
 		this.gateway = gateway;
 	}
 

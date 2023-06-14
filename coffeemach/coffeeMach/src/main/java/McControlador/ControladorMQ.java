@@ -16,7 +16,7 @@ import com.zeroc.Ice.Current;
 
 import alarma.Alarma;
 import alarma.AlarmaRepositorio;
-import gateway.ReliableMessagePrx;
+import RM.ReliableMessagePrx;
 import ingrediente.Ingrediente;
 import ingrediente.IngredienteRepositorio;
 

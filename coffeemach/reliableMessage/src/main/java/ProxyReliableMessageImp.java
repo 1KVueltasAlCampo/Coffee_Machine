@@ -1,12 +1,10 @@
 import java.util.Queue;
 import java.util.LinkedList;
-
-import gateway.ReliableMessage;
-import gateway.ReliableMessagePrx;
+import RM.ReliableMessagePrx;
 import com.zeroc.Ice.Current;
 
 
-public class ProxyReliableMessageImp implements gateway.ReliableMessage, Runnable{
+public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
     private Queue<String> alarmas;
     private ReliableMessagePrx server;
 

@@ -1,10 +1,10 @@
 import com.zeroc.Ice.*;
 
 import McControlador.ControladorMQ;
-import gateway.ObservablePrx;
-import gateway.ObserverPrx;
-import gateway.ReliableMessagePrx;
-import gatewayCommunication.ObserverImp;
+import pubsub.ObservablePrx;
+import pubsub.ObserverPrx;
+import RM.ReliableMessagePrx;
+import publisher_subscriber.ObserverImp;
 
 import java.util.*;
 import servicios.*;

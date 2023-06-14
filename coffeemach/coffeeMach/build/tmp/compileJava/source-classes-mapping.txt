@@ -1,6 +1,5 @@
-gateway/ReliableMessage.java
- gateway.ReliableMessage
- gateway.ReliableMessage$1
+CoffeeMach.java
+ CoffeeMach
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -9,8 +8,6 @@ interfazUsuario/Prueba.java
  interfazUsuario.Prueba
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
-gateway/_ObservablePrxI.java
- gateway._ObservablePrxI
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 suministro/SuministroService.java
@@ -20,9 +17,12 @@ servicios/VentaService.java
  servicios.VentaService$1
 McControlador/VentaService.java
  McControlador.VentaService
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+pubsub/Observer.java
+ pubsub.Observer
+ pubsub.Observer$1
+pubsub/Observable.java
+ pubsub.Observable
+ pubsub.Observable$1
 monedero/MonedasRepositorio.java
  monedero.MonedasRepositorio
 servicios/_RecetaServicePrxI.java
@@ -37,17 +37,17 @@ productoReceta/RecetaRepositorio.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-gateway/ObserverPrx.java
- gateway.ObserverPrx
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
+RM/_ReliableMessagePrxI.java
+ RM._ReliableMessagePrxI
 servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 interfaces/Repositorio.java
  interfaces.Repositorio
-gateway/ReliableMessagePrx.java
- gateway.ReliableMessagePrx
+RM/ReliableMessagePrx.java
+ RM.ReliableMessagePrx
 ingrediente/IngredienteService.java
  ingrediente.IngredienteService
 servicios/ServicioComLogisticaPrx.java
@@ -56,50 +56,30 @@ alarma/AlarmaService.java
  alarma.AlarmaService
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-gateway/Observer.java
- gateway.Observer
- gateway.Observer$1
 McControlador/VentaRepositorio.java
  McControlador.VentaRepositorio
+pubsub/_ObservablePrxI.java
+ pubsub._ObservablePrxI
 servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
 alarma/AlarmaRepositorio.java
  alarma.AlarmaRepositorio
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
+publisher_subscriber/ObserverImp.java
+ publisher_subscriber.ObserverImp
 productoReceta/Receta.java
  productoReceta.Receta
 ingrediente/IngredienteRepositorio.java
  ingrediente.IngredienteRepositorio
-gateway/_ObserverPrxI.java
- gateway._ObserverPrxI
+pubsub/ObservablePrx.java
+ pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 ingrediente/Ingrediente.java
  ingrediente.Ingrediente
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-gateway/Observable.java
- gateway.Observable
- gateway.Observable$1
-McControlador/Venta.java
- McControlador.Venta
-monedero/DepositoMonedas.java
- monedero.DepositoMonedas
-alarma/AlarmaServiceImp.java
- alarma.AlarmaServiceImp
-gateway/_ReliableMessagePrxI.java
- gateway._ReliableMessagePrxI
-servicios/VentaServicePrx.java
- servicios.VentaServicePrx
-gateway/ObservablePrx.java
- gateway.ObservablePrx
-interfazUsuario/Interfaz.java
- interfazUsuario.Interfaz
-CoffeeMach.java
- CoffeeMach
 McControlador/ControladorMQ.java
  McControlador.ControladorMQ
  McControlador.ControladorMQ$1
@@ -111,5 +91,25 @@ McControlador/ControladorMQ.java
  McControlador.ControladorMQ$7
  McControlador.ControladorMQ$8
  McControlador.ControladorMQ$9
-gatewayCommunication/ObserverImp.java
- gatewayCommunication.ObserverImp
+McControlador/Venta.java
+ McControlador.Venta
+monedero/DepositoMonedas.java
+ monedero.DepositoMonedas
+alarma/AlarmaServiceImp.java
+ alarma.AlarmaServiceImp
+RM/ReliableMessage.java
+ RM.ReliableMessage
+ RM.ReliableMessage$1
+servicios/VentaServicePrx.java
+ servicios.VentaServicePrx
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
+interfazUsuario/Interfaz.java
+ interfazUsuario.Interfaz
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper

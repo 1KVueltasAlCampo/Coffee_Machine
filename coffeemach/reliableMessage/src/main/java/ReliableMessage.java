@@ -1,4 +1,4 @@
-import gateway.ReliableMessagePrx;
+import RM.ReliableMessagePrx;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -8,10 +8,9 @@ import com.zeroc.Ice.Util;
 import com.zeroc.Ice.ObjectAdapter;
 import com.zeroc.Ice.ObjectPrx;
 
-import gateway.ReliableMessagePrx;
 
 
-public class ProxyReliableMessage {
+public class ReliableMessage {
     public static void main(String[] args) {
         List<String> extPar = new ArrayList<>();
 

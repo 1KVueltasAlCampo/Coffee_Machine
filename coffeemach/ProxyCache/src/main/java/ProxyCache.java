@@ -1,8 +1,9 @@
 import com.zeroc.Ice.*;
 
-
-import gateway.ObservablePrx;
-import gateway.ObserverPrx;
+import publisher_subscriber.ProxyCacheObservableImp;
+import publisher_subscriber.ProxyCacheObserverImp;
+import pubsub.ObservablePrx;
+import pubsub.ObserverPrx;
 
 import java.util.*;
 
@@ -16,12 +17,12 @@ public class ProxyCache {
         
       ObjectAdapter adapter = communicator.createObjectAdapter("ProxyCache");
      
-      ObservableImp proxyCache = new ObservableImp();
+      ProxyCacheObservableImp proxyCache = new ProxyCacheObservableImp();
       proxyCache.setCommunicator(communicator);
 
       adapter.add(proxyCache, Util.stringToIdentity("ProxyCache"));
 
-      ProxyCacheImp proxyCacheImp = new ProxyCacheImp(gateway);
+      ProxyCacheObserverImp proxyCacheImp = new ProxyCacheObserverImp(gateway);
 
       ObjectPrx objectPrx = adapter.add(proxyCacheImp, Util.stringToIdentity("proxyCache"));
 

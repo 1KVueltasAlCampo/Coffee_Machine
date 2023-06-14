@@ -1,4 +1,4 @@
-package gatewayCommunication;
+package publisher_subscriber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
 
-import gateway.ObserverPrx;
+import pubsub.ObserverPrx;
 import receta.ProductoReceta;
 
-public class ObservableImp implements gateway.Observable {
+public class ServerObservableImp implements pubsub.Observable {
 
     private Communicator communicator;
     private ProductoReceta recetaService;
@@ -30,7 +30,7 @@ public class ObservableImp implements gateway.Observable {
 	}
 
 
-    public ObservableImp() {
+    public ServerObservableImp() {
         this.observers = new ArrayList<>();
     }
 

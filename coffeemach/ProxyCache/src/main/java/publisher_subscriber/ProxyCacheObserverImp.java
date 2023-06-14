@@ -1,16 +1,17 @@
+package publisher_subscriber;
 import java.util.ArrayList;
 
 import com.zeroc.Ice.Current;
 
-import gateway.ObservablePrx;
+import pubsub.ObservablePrx;
 
-public class ProxyCacheImp implements gateway.Observer {
+public class ProxyCacheObserverImp implements pubsub.Observer {
 
     private ArrayList<String> recetasCache;
 
     private ObservablePrx server;
 
-    public ProxyCacheImp(ObservablePrx server) {
+    public ProxyCacheObserverImp(ObservablePrx server) {
         this.server = server;
         recetasCache = new ArrayList<>();
     }

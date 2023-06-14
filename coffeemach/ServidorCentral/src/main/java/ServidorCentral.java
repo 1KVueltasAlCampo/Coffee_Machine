@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 import com.zeroc.Ice.*;
 import comunicacion.*;
-import gatewayCommunication.ObservableImp;
-import gatewayCommunication.RMImp;
 import interfaz.ControladorRecetas;
+import publisher_subscriber.ServerObservableImp;
+import publisher_subscriber.RMImp;
 import receta.ProductoReceta;
 import servicios.*;
 import ventas.VentasManager;
@@ -33,7 +33,7 @@ public class ServidorCentral {
             VentasManager ventas = new VentasManager();
             ventas.setCommunicator(communicator);
 
-            ObservableImp gateway = new ObservableImp();
+            ServerObservableImp gateway = new ServerObservableImp();
             gateway.setCommunicator(communicator);
 
             RMImp reliableMessage = new RMImp();

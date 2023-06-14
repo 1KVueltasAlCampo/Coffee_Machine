@@ -1,14 +1,12 @@
-package gatewayCommunication;
+package publisher_subscriber;
 
 import com.zeroc.Ice.Current;
 
 import McControlador.ControladorMQ;
-import gateway.ObservablePrx;
-import gateway.ReliableMessage;
-import gateway.ReliableMessagePrx;
+import pubsub.ObservablePrx;
 
 
-public class ObserverImp implements gateway.Observer {
+public class ObserverImp implements pubsub.Observer {
 
 
     private ObservablePrx server;

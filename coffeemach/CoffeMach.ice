@@ -1,4 +1,3 @@
-
 module servicios{
 
     sequence<string> StringArr;
@@ -54,25 +53,25 @@ module servicios{
 
 }
 
-module gateway {
+module pubsub {
   sequence<string> StringArr; 
 
   interface Observer{
     void update(StringArr recetasNuevas);
   }
 
-  interface ReliableMessage{
-    void notifyAlarm(string alarma);
-  }
-  
   interface Observable{
     void attach(Observer* o);
     void detach(Observer* o);
     void notifyObservers();
   }
 
+}
 
-
+module RM {
+    interface ReliableMessage{
+      void notifyAlarm(string alarma);
+    }
 }
 
 
