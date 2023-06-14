@@ -8,15 +8,22 @@ servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
 pubsub/_ObservablePrxI.java
  pubsub._ObservablePrxI
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+servicios/logisticCommunicationPrx.java
+ servicios.logisticCommunicationPrx
+servicios/_ServicioComLogisticaPrxI.java
+ servicios._ServicioComLogisticaPrxI
+Logistic/LogisticImp.java
+ Logistic.LogisticImp
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
+servicios/WarehouseCommunication.java
+ servicios.WarehouseCommunication
+ servicios.WarehouseCommunication$1
+servicios/WarehouseService.java
+ servicios.WarehouseService
+ servicios.WarehouseService$1
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
@@ -32,15 +39,26 @@ servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 servicios/Moneda.java
  servicios.Moneda
-pubsub/_ObserverPrxI.java
- pubsub._ObserverPrxI
+servicios/_logisticCommunicationPrxI.java
+ servicios._logisticCommunicationPrxI
+servicios/ServicioComLogistica.java
+ servicios.ServicioComLogistica
+ servicios.ServicioComLogistica$1
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-RM/ReliableMessagePrx.java
- RM.ReliableMessagePrx
+servicios/WarehouseCommunicationPrx.java
+ servicios.WarehouseCommunicationPrx
+CmLogistics.java
+ CmLogistics
+servicios/WarehouseServicePrx.java
+ servicios.WarehouseServicePrx
+servicios/_WarehouseCommunicationPrxI.java
+ servicios._WarehouseCommunicationPrxI
+servicios/_WarehouseServicePrxI.java
+ servicios._WarehouseServicePrxI
 RM/ReliableMessage.java
  RM.ReliableMessage
  RM.ReliableMessage$1
@@ -55,21 +73,17 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 pubsub/ObserverPrx.java
  pubsub.ObserverPrx
-servicios/ServicioComLogistica.java
- servicios.ServicioComLogistica
- servicios.ServicioComLogistica$1
-servicios/logisticCommunicationPrx.java
- servicios.logisticCommunicationPrx
-servicios/_ServicioComLogisticaPrxI.java
- servicios._ServicioComLogisticaPrxI
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
+RM/ReliableMessagePrx.java
+ RM.ReliableMessagePrx
 servicios/logisticCommunication.java
  servicios.logisticCommunication
  servicios.logisticCommunication$1
-Logistic/LogisticImp.java
- Logistic.LogisticImp
-servicios/_logisticCommunicationPrxI.java
- servicios._logisticCommunicationPrxI
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
-CmLogistics.java
- CmLogistics

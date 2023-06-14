@@ -10,7 +10,6 @@ module servicios{
 
 
     interface ServicioComLogistica{
-
       StringSeq asignacionMaquina(int codigoOperador);
 	    StringSeq asignacionMaquinasDesabastecidas(int codigoOperador);
 	    bool inicioSesion(int codigoOperador, string password);
@@ -18,7 +17,7 @@ module servicios{
     }
 
     interface ServicioAbastecimiento {
-	   void abastecer(int codMaquina, int tipoAlarma);
+	    void abastecer(int codMaquina, int tipoAlarma);
     }
 
     enum Moneda{
@@ -57,8 +56,15 @@ module servicios{
       void sendAlarmsToLogistic();
     }
 
-}
+        interface WarehouseService {
+      void receiveOrder(StringArr orders);
+    }
 
+    interface WarehouseCommunication {
+      void registerWarehouse(WarehouseService* warehouseService);
+      void sendOrdersToWarehouse();
+    }
+}
 
 module pubsub {
   sequence<string> StringArr; 

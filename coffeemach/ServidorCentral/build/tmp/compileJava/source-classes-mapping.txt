@@ -13,12 +13,17 @@ modelo/Operador.java
  modelo.Operador
 servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
+modelo/ConexionBD.java
+ modelo.ConexionBD
 modelo/ManejadorDatos.java
  modelo.ManejadorDatos
 alarma/AlarmasManager.java
  alarma.AlarmasManager
 ventas/VentasManager.java
  ventas.VentasManager
+servicios/WarehouseService.java
+ servicios.WarehouseService
+ servicios.WarehouseService$1
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
@@ -34,18 +39,24 @@ servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 modelo/Maquina.java
  modelo.Maquina
-servicios/VentaServicePrx.java
- servicios.VentaServicePrx
+servicios/_logisticCommunicationPrxI.java
+ servicios._logisticCommunicationPrxI
+servicios/ServicioComLogistica.java
+ servicios.ServicioComLogistica
+ servicios.ServicioComLogistica$1
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+comunicacion/ControlComLogistica.java
+ comunicacion.ControlComLogistica
+modelo/VentasReceta.java
+ modelo.VentasReceta
+servicios/_WarehouseServicePrxI.java
+ servicios._WarehouseServicePrxI
 modelo/Receta.java
  modelo.Receta
-modelo/ConexionBD.java
- modelo.ConexionBD
+publisher_subscriber/ServerObservableImp.java
+ publisher_subscriber.ServerObservableImp
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
@@ -55,18 +66,26 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 RM/ReliableMessagePrx.java
  RM.ReliableMessagePrx
-modelo/VentasReceta.java
- modelo.VentasReceta
-pubsub/ObserverPrx.java
- pubsub.ObserverPrx
+servicios/logisticCommunication.java
+ servicios.logisticCommunication
+ servicios.logisticCommunication$1
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 receta/ProductoReceta.java
  receta.ProductoReceta
 pubsub/_ObservablePrxI.java
  pubsub._ObservablePrxI
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+servicios/logisticCommunicationPrx.java
+ servicios.logisticCommunicationPrx
+servicios/_ServicioComLogisticaPrxI.java
+ servicios._ServicioComLogisticaPrxI
 reliable_message/RMImp.java
  reliable_message.RMImp
 servicios/ServicioAbastecimientoPrx.java
@@ -75,10 +94,14 @@ pubsub/ObservablePrx.java
  pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
-pubsub/_ObserverPrxI.java
- pubsub._ObserverPrxI
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/WarehouseServicePrx.java
+ servicios.WarehouseServicePrx
 interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
@@ -92,24 +115,17 @@ modelo/AsignacionMaquina.java
  modelo.AsignacionMaquina
 modelo/RecetaIngrediente.java
  modelo.RecetaIngrediente
-comunicacion/ControlComLogistica.java
- comunicacion.ControlComLogistica
-servicios/logisticCommunicationPrx.java
- servicios.logisticCommunicationPrx
-servicios/_ServicioComLogisticaPrxI.java
- servicios._ServicioComLogisticaPrxI
-servicios/logisticCommunication.java
- servicios.logisticCommunication
- servicios.logisticCommunication$1
-publisher_subscriber/ServerObservableImp.java
- publisher_subscriber.ServerObservableImp
-servicios/ServicioComLogistica.java
- servicios.ServicioComLogistica
- servicios.ServicioComLogistica$1
-servicios/_logisticCommunicationPrxI.java
- servicios._logisticCommunicationPrxI
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+servicios/VentaServicePrx.java
+ servicios.VentaServicePrx
+comunicacion/ControlComBodega.java
+ comunicacion.ControlComBodega
+servicios/WarehouseCommunicationPrx.java
+ servicios.WarehouseCommunicationPrx
+servicios/_WarehouseCommunicationPrxI.java
+ servicios._WarehouseCommunicationPrxI
+servicios/WarehouseCommunication.java
+ servicios.WarehouseCommunication
+ servicios.WarehouseCommunication$1
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
