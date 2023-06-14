@@ -143,9 +143,7 @@ public class ControladorRecetas implements Runnable {
 
 		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// .consultarProductos() returns recipes and its ingredients
-				String[] completeRecipes = recetaService.consultarProductos(null);
-				gateway.notifyObservers(null);
+					gateway.notifyObservers(null);
 			}
 		});
 
