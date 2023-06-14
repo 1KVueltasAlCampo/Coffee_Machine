@@ -10,8 +10,7 @@ public class RecetaIngrediente {
 		super();
 	}
 
-	public RecetaIngrediente(Receta receta, Ingrediente ingrediente,
-			int cantidad) {
+	public RecetaIngrediente(Receta receta, Ingrediente ingrediente, int cantidad) {
 		super();
 		this.receta = receta;
 		this.ingrediente = ingrediente;

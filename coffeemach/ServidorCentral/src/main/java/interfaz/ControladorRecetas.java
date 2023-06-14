@@ -1,17 +1,31 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
+import publisher_subscriber.ServerObservableImp;
 import receta.ProductoReceta;
-import servicios.*;
+
 
 public class ControladorRecetas implements Runnable {
 
 	private ProductoReceta recetaService;
+
+	private ServerObservableImp gateway;
+
+	//This variable is used to validate if a new recipe has ingredients associated
+	private int idLastRecipeCreated = 0;
+
+	public ControladorRecetas(ServerObservableImp gateway) {
+		this.gateway = gateway;
+	}
 
 	/**
 	 * @param recetaService the recetaService to set
@@ -70,7 +84,7 @@ public class ControladorRecetas implements Runnable {
 	}
 
 	public void eventos() {
-
+		//To add a recipe it is neccessary a name and a price
 		iR.getBtnAgregarReceta().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -82,11 +96,19 @@ public class ControladorRecetas implements Runnable {
 							Integer.parseInt(iR
 									.getTextFieldPrecioRec().getText()),
 							null);
+					
+					//Getting the recipe's id
+					try {
+						idLastRecipeCreated = Integer.parseInt(listadoRec.split("-")[0]);
+					} catch (Exception exception) {
+						System.out.println("Error getting the recipe's id");
+					}
 
 					listaReceta.add(listadoRec);
 
 					actualizarVista();
 				}
+				
 
 				iR.getTextFieldNombreRec().setText("");
 				iR.getTextFieldPrecioRec().setText("");
@@ -110,6 +132,15 @@ public class ControladorRecetas implements Runnable {
 			}
 		});
 
+		/*To associate ingredients to a recipe it is neccessary to have a recipe created
+		 * then type the recipe's id, the ingredient's id and the value
+		 * in this format idRecipe-idIngredient-value
+		 * There are four ingredients to associate
+		 * 1: Agua
+		 * 2: Cafe
+		 * 3: Azucar
+		 * 4: Vaso
+		*/
 		iR.getBtnRIC().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -131,6 +162,41 @@ public class ControladorRecetas implements Runnable {
 				}
 
 				iR.getTextFieldAsociacion().setText("");
+			}
+		});
+
+		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//if(!recetaService.consultarSiRecetaTieneIngredientesAsociados(idLastRecipeCreated)) {
+				//	JOptionPane.showMessageDialog(iR, "La receta debee tener ingredientes asociados", "Error", JOptionPane.WARNING_MESSAGE);
+				//}
+				//else {
+			
+				iR.getBtnActualizarMaquinas().setEnabled(false); //Desactivates the button while the operation is in progress
+					
+				//Change the appearance of the button
+				iR.getBtnActualizarMaquinas().setText("Cargando...");
+
+				//Execute the operation in a new thread
+				/*The time it takes for the button to change its appearance from "Cargando..." to "Actualizar Maquinas de Cafe" 
+				is slightly longer than the actual time it takes to update the observers.*/
+				Thread thread = new Thread(() -> {
+					try {
+						gateway.notifyObservers(null);
+
+								//Restart the button's appearance
+								SwingUtilities.invokeLater(() -> {
+									iR.getBtnActualizarMaquinas().setText("Actualizar Maquinas de Cafe");
+									iR.getBtnActualizarMaquinas().setEnabled(true); //Activates the button again
+								});
+							} catch (Exception ex) {
+								ex.printStackTrace();
+							}
+						});
+				thread.start();
+
+				//}
 			}
 		});
 

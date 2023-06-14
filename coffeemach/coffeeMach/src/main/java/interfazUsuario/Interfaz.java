@@ -187,6 +187,7 @@ public class Interfaz extends JFrame {
 
 		textAreaRecetas = new JTextArea();
 		scrollPane_1.setViewportView(textAreaRecetas);
+		textAreaRecetas.setEditable(false);
 
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(20, 36, 155, 137);

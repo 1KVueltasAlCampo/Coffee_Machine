@@ -14,7 +14,7 @@ public class InterfazRecetas extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNombreRec, textFieldPrecioRec, textFieldAsociacion;
-	private JButton btnAgregarReceta, btnBorrarReceta, btnRIC;
+	private JButton btnAgregarReceta, btnBorrarReceta, btnRIC, btnActualizarMaquinas;
 	private JTextArea textAreaRecetas, textAreaIngredientes;
 
 	public JTextArea getTextAreaRecetas() {
@@ -31,7 +31,7 @@ public class InterfazRecetas extends JFrame {
 	public InterfazRecetas() {
 		setTitle("Interfaz Recetas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 404, 435);
+		setBounds(100, 100, 404, 460);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -112,6 +112,11 @@ public class InterfazRecetas extends JFrame {
 		btnRIC = new JButton("Asociar R-I-C");
 		btnRIC.setBounds(10, 360, 366, 23);
 		contentPane.add(btnRIC);
+		
+		btnActualizarMaquinas = new JButton("Actualizar Maquinas de Cafe");
+		btnActualizarMaquinas.setBounds(10, 390, 366, 23);
+		contentPane.add(btnActualizarMaquinas);
+
 	}
 
 	public JTextField getTextFieldNombreRec() {
@@ -136,6 +141,10 @@ public class InterfazRecetas extends JFrame {
 
 	public JButton getBtnRIC() {
 		return btnRIC;
+	}
+
+	public JButton getBtnActualizarMaquinas() {
+		return btnActualizarMaquinas;
 	}
 
 }

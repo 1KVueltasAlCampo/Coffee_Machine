@@ -503,6 +503,32 @@ public class ManejadorDatos {
 
 	}
 
+	public boolean consultarSiRecetaTieneIngredientesAsociados(int idReceta) {
+
+		boolean itHasIngredients = false;
+
+		try {
+			String query = "SELECT * FROM RECETA_INGREDIENTE i WHERE i.IDRECETA = ?";
+
+			PreparedStatement preparedStatement = conexion.prepareStatement(query);
+
+			preparedStatement.setInt(1, idReceta);//Here you set the param number and the param itself for the query
+
+			ResultSet result = preparedStatement.executeQuery();
+
+			if (result.next()) {
+            	itHasIngredients = true;
+        	}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+		return itHasIngredients;
+	}
+
 	public String registrarReceta(String nombre, int precio) {
 
 		String retorno = "";

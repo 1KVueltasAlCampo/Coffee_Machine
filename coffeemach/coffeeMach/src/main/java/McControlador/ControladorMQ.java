@@ -23,6 +23,10 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 	private AlarmaServicePrx alarmaServicePrx;
 	private VentaServicePrx ventasService;
+	private RecetaServicePrx recetaServicePrx;
+
+	//This list saves the recipes received from the proxy cache
+	private ArrayList<String> updatedRecipes;
 
 	// @Reference
 	private AlarmaRepositorio alarmas = AlarmaRepositorio.getInstance();
@@ -35,6 +39,11 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 	// @Referenc
 	private VentaRepositorio ventas = VentaRepositorio.getInstance();
 
+
+	public ControladorMQ() {
+		updatedRecipes = new ArrayList<>();
+	}
+
 	/**
 	 * @param ventas the ventas to set
 	 */
@@ -46,13 +55,15 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 		alarmaServicePrx = a;
 	}
 
-	private RecetaServicePrx recetaServicePrx;
-
 	/**
 	 * @param recetaServicePrx the recetaServicePrx to set
 	 */
 	public void setRecetaServicePrx(RecetaServicePrx recetaServicePrx) {
 		this.recetaServicePrx = recetaServicePrx;
+	}
+
+	public void setUpdatedRecipes(ArrayList<String> updatedRecipes) {
+		this.updatedRecipes = updatedRecipes;
 	}
 
 	private Interfaz frame;
@@ -353,7 +364,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 		recetas.setElements(new HashMap<String, Receta>());
 
-		String[] recetasServer = recetaServicePrx.consultarProductos();
+		String[] recetasServer = updatedRecipes.toArray(new String[updatedRecipes.size()]);
 
 		for (int i = 0; i < recetasServer.length; i++) {
 
