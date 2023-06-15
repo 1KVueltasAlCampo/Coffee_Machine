@@ -172,9 +172,6 @@ public class ControladorRecetas implements Runnable {
 
 		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				//logistic.sendAlarmsToLogistic(null);
-				//warehouse.sendOrdersToWarehouse(null);
 				
 				//if(!recetaService.consultarSiRecetaTieneIngredientesAsociados(idLastRecipeCreated)) {
 				//	JOptionPane.showMessageDialog(iR, "La receta debee tener ingredientes asociados", "Error", JOptionPane.WARNING_MESSAGE);
@@ -205,6 +202,22 @@ public class ControladorRecetas implements Runnable {
 				thread.start();
 
 				//}
+			}
+		});
+
+		iR.getBtnEnviarAlarmasLogistica().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				logistic.sendAlarmsToLogistic(null);
+
+			}
+		});
+
+		iR.getBtnEnviarAlarmasBodega().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				warehouse.sendOrdersToWarehouse(null);
+
 			}
 		});
 

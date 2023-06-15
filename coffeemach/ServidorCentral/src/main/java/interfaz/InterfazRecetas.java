@@ -183,4 +183,8 @@ public class InterfazRecetas extends JFrame {
 		return btnEnviarAlarmasLogistica;
 	}
 
+	public JButton getBtnEnviarAlarmasBodega() {
+		return btnEnviarAlarmasBodega;
+	}
+
 }

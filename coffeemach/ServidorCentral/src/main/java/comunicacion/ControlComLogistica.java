@@ -37,7 +37,7 @@ public class ControlComLogistica implements  servicios.logisticCommunication, Ru
 
 	@Override
 	public void sendAlarmsToLogistic(Current current) {
-		String[] arrayDeStrings = {"Hola", "Mundo", "Java", "Programación"};
+		String[] arrayDeStrings = {"Alarma1", "Alarma2", "Alarma3", "Alarma4"};
 		logistic.receiveAlarms(arrayDeStrings, null);
 	}
 
