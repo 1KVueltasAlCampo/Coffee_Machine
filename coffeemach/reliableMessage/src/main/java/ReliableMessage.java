@@ -28,9 +28,12 @@ public class ReliableMessage {
             
 
             System.out.println("Reliable Message running");
-            proxyReliableMessageImp.run();
 
             adapter.activate();
+
+            System.out.println("Adapter activated");
+
+            proxyReliableMessageImp.run();
 
             communicator.waitForShutdown();
         }
