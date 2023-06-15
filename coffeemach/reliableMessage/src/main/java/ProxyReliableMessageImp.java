@@ -5,7 +5,7 @@ import com.zeroc.Ice.Current;
 import com.zeroc.Ice.Communicator;
 
 
-public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
+public class ProxyReliableMessageImp extends Thread implements RM.ReliableMessage{
     private Queue<String> alarmas;
     private ReliableMessagePrx server;
     private Communicator communicator;
@@ -19,7 +19,7 @@ public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
     /**
      * @param communicator the communicator to set
      */
-    public void setCommunicator(Communicator communicator) {
+    public synchronized void setCommunicator(Communicator communicator) {
         this.communicator = communicator;
     }
 
@@ -42,7 +42,7 @@ public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
                 Thread.yield();
             }
             catch(Exception e){
-                //Nada xd
+                System.out.println("Error al enviar la alarma: ");
             }
         }
     }
