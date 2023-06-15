@@ -25,9 +25,9 @@ echo "Deploying to $server_id"
 sshpass -p $password ssh $server_id "rm -rf $path && mkdir -p $path"
 sshpass -p $password scp ../../coffeemach/ServidorCentral/build/libs/ServidorCentral.jar $server_id:./$path
 
-echo "Deploying to xhgrid5"
-sshpass -p $password ssh swarch@xhgrid5 "rm -rf $path && mkdir -p $path"
-sshpass -p $password scp ../../coffeemach/reliableMessage/build/libs/reliableMessage.jar swarch@xhgrid5:./$path
+echo "Deploying to xhgrid9"
+sshpass -p $password ssh swarch@xhgrid9 "rm -rf $path && mkdir -p $path"
+sshpass -p $password scp ../../coffeemach/reliableMessage/build/libs/reliableMessage.jar swarch@xhgrid9:./$path
 
 echo "Deploying to xhgrid7"
 sshpass -p $password ssh swarch@xhgrid7 "rm -rf $path && mkdir -p $path"

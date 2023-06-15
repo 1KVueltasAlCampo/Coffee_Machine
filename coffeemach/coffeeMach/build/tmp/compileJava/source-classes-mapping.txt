@@ -1,5 +1,5 @@
-alarma/AlarmaService.java
- alarma.AlarmaService
+CoffeeMach.java
+ CoffeeMach
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
@@ -109,5 +109,5 @@ ingrediente/IngredienteService.java
  ingrediente.IngredienteService
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
-CoffeeMach.java
- CoffeeMach
+alarma/AlarmaService.java
+ alarma.AlarmaService

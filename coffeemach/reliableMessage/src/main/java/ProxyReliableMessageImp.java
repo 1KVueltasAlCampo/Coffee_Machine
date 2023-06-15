@@ -13,7 +13,7 @@ public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
     public ProxyReliableMessageImp(ReliableMessagePrx server) {
         this.server = server;
         alarmas = new LinkedList<>();
-        sout("ProxyReliableMessageImp creado");
+        System.out.println("ProxyReliableMessageImp creado");
     }
 
     /**
