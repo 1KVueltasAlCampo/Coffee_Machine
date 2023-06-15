@@ -10,14 +10,14 @@ module servicios{
 
 
     interface ServicioComLogistica{
-
       StringSeq asignacionMaquina(int codigoOperador);
 	    StringSeq asignacionMaquinasDesabastecidas(int codigoOperador);
 	    bool inicioSesion(int codigoOperador, string password);
+      void receiveAlarms(StringArr alarms);
     }
 
     interface ServicioAbastecimiento {
-	   void abastecer(int codMaquina, int tipoAlarma);
+	    void abastecer(int codMaquina, int tipoAlarma);
     }
 
     enum Moneda{
@@ -51,6 +51,19 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
+    interface logisticCommunication {
+      void registerLogisticCenter(ServicioComLogistica* scl);
+      void sendAlarmsToLogistic();
+    }
+
+        interface WarehouseService {
+      void receiveOrder(StringArr orders);
+    }
+
+    interface WarehouseCommunication {
+      void registerWarehouse(WarehouseService* warehouseService);
+      void sendOrdersToWarehouse();
+    }
 }
 
 module pubsub {

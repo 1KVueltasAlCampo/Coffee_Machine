@@ -1,35 +1,44 @@
 package comunicacion;
 
-import ServerControl.*;
-import servicios.ServicioComLogistica;
-import com.zeroc.Ice.*;
-import java.util.*;
+import com.zeroc.Ice.Communicator;
+import com.zeroc.Ice.Current;
 
-public class ControlComLogistica implements ServicioComLogistica{
+import ServerControl.*;
+import servicios.ServicioComLogisticaPrx;
+
+
+public class ControlComLogistica implements  servicios.logisticCommunication, Runnable {
  
 	private ServerControl control;
+	private ServicioComLogisticaPrx logistic;
+	private Communicator communicator;
 
-	public ControlComLogistica(ServerControl con) {
-		control = con;
+	public ControlComLogistica(ServerControl control) {
+		this.control = control;
 	}
 
-    @Override
-	public List<String> asignacionMaquina(int codigoOperador, Current current) {
+	/**
+     * @param communicator the communicator to set
+     */
+    public void setCommunicator(Communicator communicator) {
+        this.communicator = communicator;
+    }
 
-		return control.listaAsignaciones(codigoOperador);
-	}
-
-	// Funciona correctamente
-	@Override
-	public List<String> asignacionMaquinasDesabastecidas(int codigoOperador, Current current) {
-
-		return control.listaAsignacionesMDanada(codigoOperador);
-	}
 
 	@Override
-	public boolean inicioSesion(int codigoOperador, String password, Current current) {
+	public void run() {
+		logistic.receiveAlarms(null, null);
+	}
 
-		return control.existeOperador(codigoOperador, password);
+	@Override
+	public void registerLogisticCenter(ServicioComLogisticaPrx scl, Current current) {
+		logistic = scl;
+	}
+
+	@Override
+	public void sendAlarmsToLogistic(Current current) {
+		String[] arrayDeStrings = {"Hola", "Mundo", "Java", "Programación"};
+		logistic.receiveAlarms(arrayDeStrings, null);
 	}
 
 }

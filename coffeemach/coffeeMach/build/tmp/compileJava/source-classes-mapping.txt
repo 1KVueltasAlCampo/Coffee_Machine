@@ -12,8 +12,8 @@ McControlador/VentaRepositorio.java
  McControlador.VentaRepositorio
 pubsub/_ObservablePrxI.java
  pubsub._ObservablePrxI
-servicios/_ServicioComLogisticaPrxI.java
- servicios._ServicioComLogisticaPrxI
+alarma/AlarmaService.java
+ alarma.AlarmaService
 alarma/AlarmaRepositorio.java
  alarma.AlarmaRepositorio
 servicios/_VentaServicePrxI.java
@@ -49,9 +49,8 @@ publisher_subscriber/CoffeeMachObserverImp.java
  publisher_subscriber.CoffeeMachObserverImp
 suministro/SuministroServiceImp.java
  suministro.SuministroServiceImp
-servicios/ServicioComLogistica.java
- servicios.ServicioComLogistica
- servicios.ServicioComLogistica$1
+ingrediente/IngredienteService.java
+ ingrediente.IngredienteService
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 ingrediente/Ingrediente.java
@@ -105,9 +104,31 @@ servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento$1
 servicios/MapStrIntHelper.java
  servicios.MapStrIntHelper
-ingrediente/IngredienteService.java
- ingrediente.IngredienteService
+servicios/WarehouseService.java
+ servicios.WarehouseService
+ servicios.WarehouseService$1
+servicios/WarehouseCommunicationPrx.java
+ servicios.WarehouseCommunicationPrx
+servicios/WarehouseServicePrx.java
+ servicios.WarehouseServicePrx
+servicios/_WarehouseCommunicationPrxI.java
+ servicios._WarehouseCommunicationPrxI
+servicios/_WarehouseServicePrxI.java
+ servicios._WarehouseServicePrxI
+servicios/logisticCommunicationPrx.java
+ servicios.logisticCommunicationPrx
+servicios/_ServicioComLogisticaPrxI.java
+ servicios._ServicioComLogisticaPrxI
+servicios/logisticCommunication.java
+ servicios.logisticCommunication
+ servicios.logisticCommunication$1
+servicios/_logisticCommunicationPrxI.java
+ servicios._logisticCommunicationPrxI
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
-alarma/AlarmaService.java
- alarma.AlarmaService
+servicios/ServicioComLogistica.java
+ servicios.ServicioComLogistica
+ servicios.ServicioComLogistica$1
+servicios/WarehouseCommunication.java
+ servicios.WarehouseCommunication
+ servicios.WarehouseCommunication$1

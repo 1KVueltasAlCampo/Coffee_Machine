@@ -1,7 +1,4 @@
 package reliable_message;
-import java.util.LinkedList;
-import java.util.Queue;
-
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
 import servicios.AlarmaServicePrx;
@@ -15,32 +12,15 @@ public class RMImp implements RM.ReliableMessage {
 	private final static int ABASTECIMIENTO =4;
 	private final static int MALFUN =5;
     //private Alarma alarmaService; //No se cual de los dos es el que se usa :c
-    private Queue<String> queue;
+    private AlarmaServicePrx alarmaService;
 
     /**
      * @param communicator the communicator to set
      */
     public void setCommunicator(Communicator communicator) {
         this.communicator = communicator;
-        queue= new LinkedList<>();
-        System.out.println("RMImp creado");
     }
 
-    @Override
-    public void notifyAlarm(String a, Current current) {
-        System.out.println("Alarma recibida: "+a);
-        queue.add(a);
-    }
-
-    public String pollAlarm(){
-        return queue.poll();
-    }
-
-    public String peekAlarm(){
-        return queue.peek();
-    }
-
-    /*
     @Override
     public void notifyAlarm(String a, Current current) {
         String[] partsOfAlarm = a.split("@s");
@@ -64,6 +44,5 @@ public class RMImp implements RM.ReliableMessage {
                 break;
         }
     }
-    */
 
 }
