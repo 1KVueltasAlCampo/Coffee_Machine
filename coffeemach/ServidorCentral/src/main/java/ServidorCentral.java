@@ -36,6 +36,12 @@ public class ServidorCentral {
             ServerObservableImp gateway = new ServerObservableImp();
             gateway.setCommunicator(communicator);
 
+            ControlComLogistica logistic = new ControlComLogistica(control);
+            logistic.setCommunicator(communicator);
+
+            ControlComBodega warehouse = new ControlComBodega(control);
+            warehouse.setCommunicator(communicator);
+
             RMImp reliableMessage = new RMImp();
             reliableMessage.setCommunicator(communicator);
 
@@ -46,8 +52,10 @@ public class ServidorCentral {
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
             adapter.add(gateway, Util.stringToIdentity("Gateway"));
             adapter.add(reliableMessage, Util.stringToIdentity("ReliableMessage"));
+            adapter.add(logistic, Util.stringToIdentity("Logistic"));
+            adapter.add(warehouse, Util.stringToIdentity("Warehouse"));
             
-            ControladorRecetas controladorRecetas = new ControladorRecetas(gateway);
+           ControladorRecetas controladorRecetas = new ControladorRecetas(gateway, logistic, warehouse);
             controladorRecetas.setRecetaService(recetas);
 
             gateway.setRecetaService(recetas);

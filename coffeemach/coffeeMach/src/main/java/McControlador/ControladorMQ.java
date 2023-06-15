@@ -345,7 +345,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
 				alarmas.addElement("1", temp);
 
-				frame.interfazDeshabilitada();
+				//frame.interfazDeshabilitada();
 
 			}
 		});
