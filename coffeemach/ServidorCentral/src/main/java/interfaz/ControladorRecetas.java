@@ -11,6 +11,7 @@ import comunicacion.ControlComBodega;
 import comunicacion.ControlComLogistica;
 import publisher_subscriber.ServerObservableImp;
 import receta.ProductoReceta;
+import reliable_message.RMImp;
 
 
 public class ControladorRecetas implements Runnable {
@@ -22,6 +23,15 @@ public class ControladorRecetas implements Runnable {
 	private ControlComLogistica logistic;
 
 	private ControlComBodega warehouse;
+
+	private RMImp reliableMessage;
+
+	/**
+     * @param rmImp rmImp to set
+     */
+    public void setReliableMessage(RMImp reliableMessage) {
+		this.reliableMessage = reliableMessage;
+    }
 
 	//This variable is used to validate if a new recipe has ingredients associated
 	private int idLastRecipeCreated = 0;
@@ -86,6 +96,16 @@ public class ControladorRecetas implements Runnable {
 							+ listadoIngredientes[i] + "\n");
 		}
 
+	}
+
+	public void actualizarVistaAlarmas() {
+		String[] listadoAlarmas = reliableMessage.getQueue().toArray(new String[reliableMessage.getQueue().size()]);
+
+		for (int i = 0; i < listadoAlarmas.length; i++) {
+			iR.getTextAreaAlarmas().setText(
+				iR.getTextAreaAlarmas().getText()
+					+ listadoAlarmas[i] + "\n");
+		}
 	}
 
 	public void eventos() {
@@ -200,7 +220,6 @@ public class ControladorRecetas implements Runnable {
 							}
 						});
 				thread.start();
-
 				//}
 			}
 		});

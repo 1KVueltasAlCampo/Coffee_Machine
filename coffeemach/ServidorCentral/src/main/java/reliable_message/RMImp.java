@@ -4,6 +4,8 @@ import java.util.Queue;
 
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
+
+import interfaz.ControladorRecetas;
 import servicios.AlarmaServicePrx;
 
 public class RMImp implements RM.ReliableMessage {
@@ -14,9 +16,9 @@ public class RMImp implements RM.ReliableMessage {
 	private final static int SUMINISTRO =3;
 	private final static int ABASTECIMIENTO =4;
 	private final static int MALFUN =5;
-    //private Alarma alarmaService; //No se cual de los dos es el que se usa :c
+    private AlarmaServicePrx alarmaService; //No se cual de los dos es el que se usa :c
     private Queue<String> queue;
-
+    private ControladorRecetas controladorRecetas;
     /**
      * @param communicator the communicator to set
      */
@@ -24,11 +26,19 @@ public class RMImp implements RM.ReliableMessage {
         this.communicator = communicator;
         queue= new LinkedList<>();
         System.out.println("RMImp creado");
+
     }
 
-    @Override
+    /**
+     * @param controladorReceta controlador receta to set
+     */
+    public void setControladorReceta(ControladorRecetas controladorRecetas) {
+        this.controladorRecetas = controladorRecetas;   
+    }
+
+    
     public void notifyAlarm(String a, Current current) {
-        System.out.println("Alarma recibida: "+a);
+        System.out.println("#"+(queue.size()+1)+"Alarma recibida: "+a);
         queue.add(a);
     }
 
@@ -40,8 +50,12 @@ public class RMImp implements RM.ReliableMessage {
         return queue.peek();
     }
 
-    /*
-    @Override
+    public Queue<String> getQueue(){
+        return queue;
+    }
+
+    
+    /*@Override
     public void notifyAlarm(String a, Current current) {
         String[] partsOfAlarm = a.split("@s");
 
@@ -63,7 +77,8 @@ public class RMImp implements RM.ReliableMessage {
             default:
                 break;
         }
-    }
-    */
+
+    }*/
+    
 
 }

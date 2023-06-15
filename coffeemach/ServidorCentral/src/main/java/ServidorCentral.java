@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.zeroc.Ice.*;
 import comunicacion.*;
 import interfaz.ControladorRecetas;
@@ -42,6 +43,9 @@ public class ServidorCentral {
             RMImp reliableMessage = new RMImp();
             reliableMessage.setCommunicator(communicator);
 
+            logistic.setRealiableMessage(reliableMessage);
+            warehouse.setRealiableMessage(reliableMessage);
+
             //Endpoints
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
@@ -53,6 +57,9 @@ public class ServidorCentral {
             
             ControladorRecetas controladorRecetas = new ControladorRecetas(gateway, logistic, warehouse);
             controladorRecetas.setRecetaService(recetas);
+            controladorRecetas.setReliableMessage(reliableMessage);
+
+            reliableMessage.setControladorReceta(controladorRecetas);
 
             gateway.setRecetaService(recetas);
 

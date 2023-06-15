@@ -48,8 +48,9 @@ servicios/ServicioComLogistica.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-comunicacion/ControlComLogistica.java
- comunicacion.ControlComLogistica
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 servicios/_WarehouseCommunicationPrxI.java
  servicios._WarehouseCommunicationPrxI
 servicios/_WarehouseServicePrxI.java
@@ -76,8 +77,8 @@ servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-comunicacion/ControlComBodega.java
- comunicacion.ControlComBodega
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
 receta/ProductoReceta.java
  receta.ProductoReceta
 pubsub/_ObservablePrxI.java
@@ -86,25 +87,24 @@ servicios/logisticCommunicationPrx.java
  servicios.logisticCommunicationPrx
 servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
-reliable_message/RMImp.java
- reliable_message.RMImp
+modelo/VentasReceta.java
+ modelo.VentasReceta
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
 pubsub/ObservablePrx.java
  pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
-interfaz/InterfazRecetas.java
- interfaz.InterfazRecetas
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 servicios/WarehouseCommunicationPrx.java
  servicios.WarehouseCommunicationPrx
 servicios/WarehouseServicePrx.java
  servicios.WarehouseServicePrx
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+interfaz/InterfazRecetas.java
+ interfaz.InterfazRecetas
 modelo/Ingrediente.java
  modelo.Ingrediente
 RM/ReliableMessage.java
@@ -120,17 +120,19 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
-pubsub/ObserverPrx.java
- pubsub.ObserverPrx
-pubsub/_ObserverPrxI.java
- pubsub._ObserverPrxI
-modelo/VentasReceta.java
- modelo.VentasReceta
+comunicacion/ControlComBodega.java
+ comunicacion.ControlComBodega
+comunicacion/ControlComLogistica.java
+ comunicacion.ControlComLogistica
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
  interfaz.ControladorRecetas$4
+ interfaz.ControladorRecetas$5
+ interfaz.ControladorRecetas$6
+reliable_message/RMImp.java
+ reliable_message.RMImp
 ServidorCentral.java
  ServidorCentral

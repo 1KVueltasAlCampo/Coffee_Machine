@@ -331,22 +331,22 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 			public void actionPerformed(ActionEvent e) {
 
 				// Enviar Alarma por SCA
-
-				Alarma temp = new Alarma("1", "Se requiere mantenimiento",
+				for (int i = 0; i<100; i++) {
+							Alarma temp = new Alarma("1", "Se requiere mantenimiento",
 						new Date());
 
-				frame.getTextAreaAlarmas().setText(
+					frame.getTextAreaAlarmas().setText(
 						frame.getTextAreaAlarmas().getText()
 								+ "Se genero una alarma de: Mantenimiento"
 								+ "\n");
 
-				rm.notifyAlarm(MALFUN+"@s"+codMaquina+"@s"+"Se requiere mantenimiento");
-				//alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
+					rm.notifyAlarm(MALFUN+"@s"+codMaquina+"@s"+"Se requiere mantenimiento");
+						//alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
 
-				alarmas.addElement("1", temp);
+					alarmas.addElement("1", temp);
+				}
 
 				//frame.interfazDeshabilitada();
-
 			}
 		});
 
