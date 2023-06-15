@@ -14,8 +14,9 @@ public class InterfazRecetas extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNombreRec, textFieldPrecioRec, textFieldAsociacion;
-	private JButton btnAgregarReceta, btnBorrarReceta, btnRIC, btnActualizarMaquinas;
-	private JTextArea textAreaRecetas, textAreaIngredientes;
+	private JButton btnAgregarReceta, btnBorrarReceta, btnRIC, btnActualizarMaquinas, btnEnviarAlarmasLogistica, btnEnviarAlarmasBodega;
+	private JTextArea textAreaRecetas, textAreaIngredientes, textAreaAlarmas;
+
 
 	public JTextArea getTextAreaRecetas() {
 		return textAreaRecetas;
@@ -25,13 +26,17 @@ public class InterfazRecetas extends JFrame {
 		return textAreaIngredientes;
 	}
 
+	public JTextArea getTextAreaAlarmas() {
+		return textAreaAlarmas;
+	}
+
 	/**
 	 * Create the frame.
 	 */
 	public InterfazRecetas() {
 		setTitle("Interfaz Recetas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 404, 460);
+		setBounds(100, 100, 404, 690);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -117,6 +122,33 @@ public class InterfazRecetas extends JFrame {
 		btnActualizarMaquinas.setBounds(10, 390, 366, 23);
 		contentPane.add(btnActualizarMaquinas);
 
+		//-----------------ALARMAS-----------------
+		JLabel lblNewLabelAlarms = new JLabel("Alarmas");
+		lblNewLabelAlarms.setBounds(10, 414, 178, 14);
+		contentPane.add(lblNewLabelAlarms);
+
+		JPanel panelAlarms = new JPanel();
+		panelAlarms.setBounds(10, 435, 366, 150);
+
+		contentPane.add(panelAlarms);
+		panelAlarms.setLayout(null);
+		
+		JScrollPane scrollPaneAlarms = new JScrollPane();
+		scrollPaneAlarms
+			.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneAlarms.setBounds(10, 11, 350, 123);
+		panelAlarms.add(scrollPaneAlarms);
+
+		textAreaAlarmas = new JTextArea();
+		scrollPaneAlarms.setViewportView(textAreaAlarmas);
+		
+		btnEnviarAlarmasLogistica = new JButton("Enviar alarmas a logistica");
+		btnEnviarAlarmasLogistica.setBounds(10, 580, 366, 23);
+		contentPane.add(btnEnviarAlarmasLogistica);
+		//------------------------------------------}
+		btnEnviarAlarmasBodega = new JButton("Enviar alarmas a logistica");
+		btnEnviarAlarmasBodega.setBounds(10, 615, 366, 23);
+		contentPane.add(btnEnviarAlarmasBodega);
 	}
 
 	public JTextField getTextFieldNombreRec() {
@@ -145,6 +177,10 @@ public class InterfazRecetas extends JFrame {
 
 	public JButton getBtnActualizarMaquinas() {
 		return btnActualizarMaquinas;
+	}
+
+	public JButton getBtnEnviarAlarmasLogistica() {
+		return btnEnviarAlarmasLogistica;
 	}
 
 }
