@@ -94,8 +94,8 @@ pubsub/ObservablePrx.java
  pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
-ServidorCentral.java
- ServidorCentral
+interfaz/InterfazRecetas.java
+ interfaz.InterfazRecetas
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 servicios/WarehouseCommunicationPrx.java
@@ -126,11 +126,11 @@ pubsub/_ObserverPrxI.java
  pubsub._ObserverPrxI
 modelo/VentasReceta.java
  modelo.VentasReceta
-interfaz/InterfazRecetas.java
- interfaz.InterfazRecetas
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
  interfaz.ControladorRecetas$4
+ServidorCentral.java
+ ServidorCentral

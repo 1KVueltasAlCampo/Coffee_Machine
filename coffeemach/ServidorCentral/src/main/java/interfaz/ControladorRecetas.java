@@ -173,7 +173,7 @@ public class ControladorRecetas implements Runnable {
 		iR.getBtnActualizarMaquinas().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				logistic.sendAlarmsToLogistic(null);
+				//logistic.sendAlarmsToLogistic(null);
 				//warehouse.sendOrdersToWarehouse(null);
 				
 				//if(!recetaService.consultarSiRecetaTieneIngredientesAsociados(idLastRecipeCreated)) {
