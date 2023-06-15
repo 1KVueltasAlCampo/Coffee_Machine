@@ -139,6 +139,42 @@ public interface ServicioComLogisticaPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void receiveAlarms(String[] alarms)
+    {
+        receiveAlarms(alarms, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void receiveAlarms(String[] alarms, java.util.Map<String, String> context)
+    {
+        _iceI_receiveAlarmsAsync(alarms, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveAlarmsAsync(String[] alarms)
+    {
+        return _iceI_receiveAlarmsAsync(alarms, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> receiveAlarmsAsync(String[] alarms, java.util.Map<String, String> context)
+    {
+        return _iceI_receiveAlarmsAsync(alarms, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_alarms -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveAlarmsAsync(String[] iceP_alarms, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveAlarms", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeStringSeq(iceP_alarms);
+                 }, null);
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

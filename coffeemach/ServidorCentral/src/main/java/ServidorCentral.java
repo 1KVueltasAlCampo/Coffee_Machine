@@ -23,8 +23,6 @@ public class ServidorCentral {
 
             ServerControl control = new ServerControl(communicator);
 
-            ServicioComLogistica log = new ControlComLogistica(control);
-
             Alarma alarma = new Alarma(new AlarmasManager(communicator));
 
             ProductoReceta recetas = new ProductoReceta();
@@ -48,21 +46,19 @@ public class ServidorCentral {
             //Endpoints
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
-            adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
             adapter.add(gateway, Util.stringToIdentity("Gateway"));
             adapter.add(reliableMessage, Util.stringToIdentity("ReliableMessage"));
             adapter.add(logistic, Util.stringToIdentity("Logistic"));
             adapter.add(warehouse, Util.stringToIdentity("Warehouse"));
             
-           ControladorRecetas controladorRecetas = new ControladorRecetas(gateway, logistic, warehouse);
+            ControladorRecetas controladorRecetas = new ControladorRecetas(gateway, logistic, warehouse);
             controladorRecetas.setRecetaService(recetas);
 
             gateway.setRecetaService(recetas);
 
             controladorRecetas.run();
             adapter.activate();
-            System.out.println("El adaptador esta activado");
             communicator.waitForShutdown();
 
         }
