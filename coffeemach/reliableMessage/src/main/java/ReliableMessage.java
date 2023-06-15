@@ -27,7 +27,7 @@ public class ReliableMessage {
             proxyReliableMessageImp.setCommunicator(communicator);
             
             //Endpoint
-            adapter.add(proxyReliableMessageImp, Util.stringToIdentity("ProxyRM"));
+            adapter.add(proxyReliableMessageImp, Util.stringToIdentity("RM"));
             
 
             System.out.println("Reliable Message running");

@@ -13,17 +13,17 @@
 // </auto-generated>
 //
 
-package servicios;
+package RM;
 
-public interface VentaService extends com.zeroc.Ice.Object
+public interface ReliableMessage extends com.zeroc.Ice.Object
 {
-    void registrarVenta(int codMaq, String[] ventas, com.zeroc.Ice.Current current);
+    void notifyAlarm(String alarma, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::servicios::VentaService"
+        "::RM::ReliableMessage"
     };
 
     @Override
@@ -40,7 +40,7 @@ public interface VentaService extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::servicios::VentaService";
+        return "::RM::ReliableMessage";
     }
 
     /**
@@ -50,16 +50,14 @@ public interface VentaService extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registrarVenta(VentaService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_notifyAlarm(ReliableMessage obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_codMaq;
-        String[] iceP_ventas;
-        iceP_codMaq = istr.readInt();
-        iceP_ventas = istr.readStringSeq();
+        String iceP_alarma;
+        iceP_alarma = istr.readString();
         inS.endReadParams();
-        obj.registrarVenta(iceP_codMaq, iceP_ventas, current);
+        obj.notifyAlarm(iceP_alarma, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -70,7 +68,7 @@ public interface VentaService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "registrarVenta"
+        "notifyAlarm"
     };
 
     /** @hidden */
@@ -104,7 +102,7 @@ public interface VentaService extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_registrarVenta(this, in, current);
+                return _iceD_notifyAlarm(this, in, current);
             }
         }
 

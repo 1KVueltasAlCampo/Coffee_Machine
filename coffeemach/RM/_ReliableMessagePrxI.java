@@ -13,10 +13,10 @@
 // </auto-generated>
 //
 
-package servicios;
+package RM;
 
 /** @hidden */
-public class _RecetaServicePrxI extends com.zeroc.Ice._ObjectPrxI implements RecetaServicePrx
+public class _ReliableMessagePrxI extends com.zeroc.Ice._ObjectPrxI implements ReliableMessagePrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

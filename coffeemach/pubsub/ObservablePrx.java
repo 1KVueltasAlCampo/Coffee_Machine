@@ -13,45 +13,112 @@
 // </auto-generated>
 //
 
-package servicios;
+package pubsub;
 
-public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
+public interface ObservablePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void abastecer(int codMaquina, int tipoAlarma)
+    default void attach(ObserverPrx o)
     {
-        abastecer(codMaquina, tipoAlarma, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        attach(o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void abastecer(int codMaquina, int tipoAlarma, java.util.Map<String, String> context)
+    default void attach(ObserverPrx o, java.util.Map<String, String> context)
     {
-        _iceI_abastecerAsync(codMaquina, tipoAlarma, context, true).waitForResponse();
+        _iceI_attachAsync(o, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> abastecerAsync(int codMaquina, int tipoAlarma)
+    default java.util.concurrent.CompletableFuture<Void> attachAsync(ObserverPrx o)
     {
-        return _iceI_abastecerAsync(codMaquina, tipoAlarma, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_attachAsync(o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> abastecerAsync(int codMaquina, int tipoAlarma, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> attachAsync(ObserverPrx o, java.util.Map<String, String> context)
     {
-        return _iceI_abastecerAsync(codMaquina, tipoAlarma, context, false);
+        return _iceI_attachAsync(o, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_codMaquina -
-     * @param iceP_tipoAlarma -
+     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_abastecerAsync(int iceP_codMaquina, int iceP_tipoAlarma, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_attachAsync(ObserverPrx iceP_o, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "abastecer", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "attach", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeInt(iceP_codMaquina);
-                     ostr.writeInt(iceP_tipoAlarma);
+                     ostr.writeProxy(iceP_o);
                  }, null);
+        return f;
+    }
+
+    default void detach(ObserverPrx o)
+    {
+        detach(o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void detach(ObserverPrx o, java.util.Map<String, String> context)
+    {
+        _iceI_detachAsync(o, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> detachAsync(ObserverPrx o)
+    {
+        return _iceI_detachAsync(o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> detachAsync(ObserverPrx o, java.util.Map<String, String> context)
+    {
+        return _iceI_detachAsync(o, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_o -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_detachAsync(ObserverPrx iceP_o, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "detach", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeProxy(iceP_o);
+                 }, null);
+        return f;
+    }
+
+    default void notifyObservers()
+    {
+        notifyObservers(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void notifyObservers(java.util.Map<String, String> context)
+    {
+        _iceI_notifyObserversAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> notifyObserversAsync()
+    {
+        return _iceI_notifyObserversAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> notifyObserversAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_notifyObserversAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyObserversAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notifyObservers", null, sync, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 
@@ -61,9 +128,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ServicioAbastecimientoPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
+    static ObservablePrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ServicioAbastecimientoPrx.class, _ServicioAbastecimientoPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ObservablePrx.class, _ObservablePrxI.class);
     }
 
     /**
@@ -73,9 +140,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ServicioAbastecimientoPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
+    static ObservablePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ServicioAbastecimientoPrx.class, _ServicioAbastecimientoPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ObservablePrx.class, _ObservablePrxI.class);
     }
 
     /**
@@ -85,9 +152,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ServicioAbastecimientoPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static ObservablePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ServicioAbastecimientoPrx.class, _ServicioAbastecimientoPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ObservablePrx.class, _ObservablePrxI.class);
     }
 
     /**
@@ -98,9 +165,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ServicioAbastecimientoPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static ObservablePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ServicioAbastecimientoPrx.class, _ServicioAbastecimientoPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ObservablePrx.class, _ObservablePrxI.class);
     }
 
     /**
@@ -108,9 +175,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static ServicioAbastecimientoPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
+    static ObservablePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ServicioAbastecimientoPrx.class, _ServicioAbastecimientoPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ObservablePrx.class, _ObservablePrxI.class);
     }
 
     /**
@@ -119,9 +186,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static ServicioAbastecimientoPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static ObservablePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ServicioAbastecimientoPrx.class, _ServicioAbastecimientoPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ObservablePrx.class, _ObservablePrxI.class);
     }
 
     /**
@@ -130,9 +197,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified per-proxy context.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_context(java.util.Map<String, String> newContext)
+    default ObservablePrx ice_context(java.util.Map<String, String> newContext)
     {
-        return (ServicioAbastecimientoPrx)_ice_context(newContext);
+        return (ObservablePrx)_ice_context(newContext);
     }
 
     /**
@@ -141,9 +208,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified adapter ID.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_adapterId(String newAdapterId)
+    default ObservablePrx ice_adapterId(String newAdapterId)
     {
-        return (ServicioAbastecimientoPrx)_ice_adapterId(newAdapterId);
+        return (ObservablePrx)_ice_adapterId(newAdapterId);
     }
 
     /**
@@ -152,9 +219,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    default ObservablePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
-        return (ServicioAbastecimientoPrx)_ice_endpoints(newEndpoints);
+        return (ObservablePrx)_ice_endpoints(newEndpoints);
     }
 
     /**
@@ -163,9 +230,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator cache timeout.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_locatorCacheTimeout(int newTimeout)
+    default ObservablePrx ice_locatorCacheTimeout(int newTimeout)
     {
-        return (ServicioAbastecimientoPrx)_ice_locatorCacheTimeout(newTimeout);
+        return (ObservablePrx)_ice_locatorCacheTimeout(newTimeout);
     }
 
     /**
@@ -174,9 +241,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified invocation timeout.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_invocationTimeout(int newTimeout)
+    default ObservablePrx ice_invocationTimeout(int newTimeout)
     {
-        return (ServicioAbastecimientoPrx)_ice_invocationTimeout(newTimeout);
+        return (ObservablePrx)_ice_invocationTimeout(newTimeout);
     }
 
     /**
@@ -185,9 +252,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified caching policy.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_connectionCached(boolean newCache)
+    default ObservablePrx ice_connectionCached(boolean newCache)
     {
-        return (ServicioAbastecimientoPrx)_ice_connectionCached(newCache);
+        return (ObservablePrx)_ice_connectionCached(newCache);
     }
 
     /**
@@ -196,9 +263,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    default ObservablePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
-        return (ServicioAbastecimientoPrx)_ice_endpointSelection(newType);
+        return (ObservablePrx)_ice_endpointSelection(newType);
     }
 
     /**
@@ -209,9 +276,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_secure(boolean b)
+    default ObservablePrx ice_secure(boolean b)
     {
-        return (ServicioAbastecimientoPrx)_ice_secure(b);
+        return (ObservablePrx)_ice_secure(b);
     }
 
     /**
@@ -220,9 +287,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    default ObservablePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
-        return (ServicioAbastecimientoPrx)_ice_encodingVersion(e);
+        return (ObservablePrx)_ice_encodingVersion(e);
     }
 
     /**
@@ -233,9 +300,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_preferSecure(boolean b)
+    default ObservablePrx ice_preferSecure(boolean b)
     {
-        return (ServicioAbastecimientoPrx)_ice_preferSecure(b);
+        return (ObservablePrx)_ice_preferSecure(b);
     }
 
     /**
@@ -244,9 +311,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    default ObservablePrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
-        return (ServicioAbastecimientoPrx)_ice_router(router);
+        return (ObservablePrx)_ice_router(router);
     }
 
     /**
@@ -255,9 +322,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    default ObservablePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
-        return (ServicioAbastecimientoPrx)_ice_locator(locator);
+        return (ObservablePrx)_ice_locator(locator);
     }
 
     /**
@@ -266,9 +333,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified collocation optimization.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_collocationOptimized(boolean b)
+    default ObservablePrx ice_collocationOptimized(boolean b)
     {
-        return (ServicioAbastecimientoPrx)_ice_collocationOptimized(b);
+        return (ObservablePrx)_ice_collocationOptimized(b);
     }
 
     /**
@@ -276,9 +343,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses twoway invocations.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_twoway()
+    default ObservablePrx ice_twoway()
     {
-        return (ServicioAbastecimientoPrx)_ice_twoway();
+        return (ObservablePrx)_ice_twoway();
     }
 
     /**
@@ -286,9 +353,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses oneway invocations.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_oneway()
+    default ObservablePrx ice_oneway()
     {
-        return (ServicioAbastecimientoPrx)_ice_oneway();
+        return (ObservablePrx)_ice_oneway();
     }
 
     /**
@@ -296,9 +363,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch oneway invocations.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_batchOneway()
+    default ObservablePrx ice_batchOneway()
     {
-        return (ServicioAbastecimientoPrx)_ice_batchOneway();
+        return (ObservablePrx)_ice_batchOneway();
     }
 
     /**
@@ -306,9 +373,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses datagram invocations.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_datagram()
+    default ObservablePrx ice_datagram()
     {
-        return (ServicioAbastecimientoPrx)_ice_datagram();
+        return (ObservablePrx)_ice_datagram();
     }
 
     /**
@@ -316,9 +383,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch datagram invocations.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_batchDatagram()
+    default ObservablePrx ice_batchDatagram()
     {
-        return (ServicioAbastecimientoPrx)_ice_batchDatagram();
+        return (ObservablePrx)_ice_batchDatagram();
     }
 
     /**
@@ -327,9 +394,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified compression setting.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_compress(boolean co)
+    default ObservablePrx ice_compress(boolean co)
     {
-        return (ServicioAbastecimientoPrx)_ice_compress(co);
+        return (ObservablePrx)_ice_compress(co);
     }
 
     /**
@@ -338,9 +405,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified timeout.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_timeout(int t)
+    default ObservablePrx ice_timeout(int t)
     {
-        return (ServicioAbastecimientoPrx)_ice_timeout(t);
+        return (ObservablePrx)_ice_timeout(t);
     }
 
     /**
@@ -349,9 +416,9 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified connection ID.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_connectionId(String connectionId)
+    default ObservablePrx ice_connectionId(String connectionId)
     {
-        return (ServicioAbastecimientoPrx)_ice_connectionId(connectionId);
+        return (ObservablePrx)_ice_connectionId(connectionId);
     }
 
     /**
@@ -360,13 +427,13 @@ public interface ServicioAbastecimientoPrx extends com.zeroc.Ice.ObjectPrx
      * @return A fixed proxy bound to the given connection.
      **/
     @Override
-    default ServicioAbastecimientoPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    default ObservablePrx ice_fixed(com.zeroc.Ice.Connection connection)
     {
-        return (ServicioAbastecimientoPrx)_ice_fixed(connection);
+        return (ObservablePrx)_ice_fixed(connection);
     }
 
     static String ice_staticId()
     {
-        return "::servicios::ServicioAbastecimiento";
+        return "::pubsub::Observable";
     }
 }

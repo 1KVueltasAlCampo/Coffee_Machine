@@ -13,21 +13,21 @@
 // </auto-generated>
 //
 
-package servicios;
+package pubsub;
 
-public interface ServicioComLogistica extends com.zeroc.Ice.Object
+public interface Observable extends com.zeroc.Ice.Object
 {
-    java.util.List<java.lang.String> asignacionMaquina(int codigoOperador, com.zeroc.Ice.Current current);
+    void attach(ObserverPrx o, com.zeroc.Ice.Current current);
 
-    java.util.List<java.lang.String> asignacionMaquinasDesabastecidas(int codigoOperador, com.zeroc.Ice.Current current);
+    void detach(ObserverPrx o, com.zeroc.Ice.Current current);
 
-    boolean inicioSesion(int codigoOperador, String password, com.zeroc.Ice.Current current);
+    void notifyObservers(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::servicios::ServicioComLogistica"
+        "::pubsub::Observable"
     };
 
     @Override
@@ -44,7 +44,7 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::servicios::ServicioComLogistica";
+        return "::pubsub::Observable";
     }
 
     /**
@@ -54,18 +54,15 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_asignacionMaquina(ServicioComLogistica obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_attach(Observable obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_codigoOperador;
-        iceP_codigoOperador = istr.readInt();
+        ObserverPrx iceP_o;
+        iceP_o = ObserverPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        java.util.List<java.lang.String> ret = obj.asignacionMaquina(iceP_codigoOperador, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        StringSeqHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        obj.attach(iceP_o, current);
+        return inS.setResult(inS.writeEmptyParams());
     }
 
     /**
@@ -75,18 +72,15 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_asignacionMaquinasDesabastecidas(ServicioComLogistica obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_detach(Observable obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_codigoOperador;
-        iceP_codigoOperador = istr.readInt();
+        ObserverPrx iceP_o;
+        iceP_o = ObserverPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        java.util.List<java.lang.String> ret = obj.asignacionMaquinasDesabastecidas(iceP_codigoOperador, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        StringSeqHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        obj.detach(iceP_o, current);
+        return inS.setResult(inS.writeEmptyParams());
     }
 
     /**
@@ -96,32 +90,24 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_inicioSesion(ServicioComLogistica obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_notifyObservers(Observable obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_codigoOperador;
-        String iceP_password;
-        iceP_codigoOperador = istr.readInt();
-        iceP_password = istr.readString();
-        inS.endReadParams();
-        boolean ret = obj.inicioSesion(iceP_codigoOperador, iceP_password, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
+        inS.readEmptyParams();
+        obj.notifyObservers(current);
+        return inS.setResult(inS.writeEmptyParams());
     }
 
     /** @hidden */
     final static String[] _iceOps =
     {
-        "asignacionMaquina",
-        "asignacionMaquinasDesabastecidas",
+        "attach",
+        "detach",
         "ice_id",
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "inicioSesion"
+        "notifyObservers"
     };
 
     /** @hidden */
@@ -139,11 +125,11 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
         {
             case 0:
             {
-                return _iceD_asignacionMaquina(this, in, current);
+                return _iceD_attach(this, in, current);
             }
             case 1:
             {
-                return _iceD_asignacionMaquinasDesabastecidas(this, in, current);
+                return _iceD_detach(this, in, current);
             }
             case 2:
             {
@@ -163,7 +149,7 @@ public interface ServicioComLogistica extends com.zeroc.Ice.Object
             }
             case 6:
             {
-                return _iceD_inicioSesion(this, in, current);
+                return _iceD_notifyObservers(this, in, current);
             }
         }
 

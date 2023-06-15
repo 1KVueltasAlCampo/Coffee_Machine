@@ -32,6 +32,7 @@ public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
     public void run(){
         while(true){
             String alarm = "";
+            System.out.println("Estoy en ejecucion");
             try{
                 while(!alarmas.isEmpty()){
                     alarm = alarmas.peek();
