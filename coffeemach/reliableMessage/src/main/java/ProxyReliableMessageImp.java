@@ -13,6 +13,7 @@ public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
     public ProxyReliableMessageImp(ReliableMessagePrx server) {
         this.server = server;
         alarmas = new LinkedList<>();
+        sout("ProxyReliableMessageImp creado");
     }
 
     /**
@@ -32,7 +33,6 @@ public class ProxyReliableMessageImp implements RM.ReliableMessage, Runnable{
     public void run(){
         while(true){
             String alarm = "";
-            System.out.println("Estoy en ejecucion");
             try{
                 while(!alarmas.isEmpty()){
                     alarm = alarmas.peek();

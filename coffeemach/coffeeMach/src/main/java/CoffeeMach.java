@@ -24,6 +24,7 @@ public class CoffeeMach {
           communicator.propertyToProxy("recetas")).ice_twoway();
       ObservablePrx proxyCache = ObservablePrx.checkedCast(
         communicator.propertyToProxy("proxycache")).ice_twoway();
+        
       System.out.println("Hola, deberia estar corriendo");
       
       ReliableMessagePrx reliableMessageService = ReliableMessagePrx.checkedCast(

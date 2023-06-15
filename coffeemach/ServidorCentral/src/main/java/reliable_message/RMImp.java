@@ -15,7 +15,6 @@ public class RMImp implements RM.ReliableMessage {
 	private final static int ABASTECIMIENTO =4;
 	private final static int MALFUN =5;
     //private Alarma alarmaService; //No se cual de los dos es el que se usa :c
-    private AlarmaServicePrx alarmaService;
     private Queue<String> queue;
 
     /**
@@ -24,6 +23,7 @@ public class RMImp implements RM.ReliableMessage {
     public void setCommunicator(Communicator communicator) {
         this.communicator = communicator;
         queue= new LinkedList<>();
+        System.out.println("RMImp creado");
     }
 
     @Override

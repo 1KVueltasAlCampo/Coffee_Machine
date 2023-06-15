@@ -54,6 +54,7 @@ public class ServidorCentral {
 
             controladorRecetas.run();
             adapter.activate();
+            System.out.println("El adaptador esta activado");
             communicator.waitForShutdown();
 
         }

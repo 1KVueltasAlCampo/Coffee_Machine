@@ -3,10 +3,7 @@ import RM.ReliableMessagePrx;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.zeroc.Ice.Communicator;
-import com.zeroc.Ice.Util;
-import com.zeroc.Ice.ObjectAdapter;
-import com.zeroc.Ice.ObjectPrx;
+import com.zeroc.Ice.*;
 
 
 
@@ -18,7 +15,7 @@ public class ReliableMessage {
 
         try (Communicator communicator = Util.initialize(args, "ReliableMessage.cfg", extPar)) {
             //Endpoint from server
-            ReliableMessagePrx gateway = ReliableMessagePrx.checkedCast(communicator.propertyToProxy("rm")).ice_twoway();
+            ReliableMessagePrx gateway = ReliableMessagePrx.checkedCast(communicator.propertyToProxy("relSer")).ice_twoway();
 
 
             ObjectAdapter adapter = communicator.createObjectAdapter("ProxyRM");
