@@ -7,10 +7,8 @@ import com.zeroc.Ice.ObjectPrx;
 import com.zeroc.Ice.Util;
 
 import bodega.WareHouseImpl;
-import servicios.ServicioComLogisticaPrx;
 import servicios.WarehouseCommunicationPrx;
 import servicios.WarehouseServicePrx;
-import servicios.logisticCommunicationPrx;
 
 public class BodegaCentral {
 
@@ -31,6 +29,8 @@ public class BodegaCentral {
             WarehouseServicePrx prx = WarehouseServicePrx.uncheckedCast(objectPrx);
 
             wareHouse.registerWarehouse(prx);
+            
+            System.out.println("Warehouse is running...");
 
             adapter.activate();
             communicator.waitForShutdown();

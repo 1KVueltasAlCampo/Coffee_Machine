@@ -6,7 +6,6 @@ import comunicacion.*;
 import interfaz.ControladorRecetas;
 import publisher_subscriber.ServerObservableImp;
 import receta.ProductoReceta;
-import servicios.*;
 import ventas.VentasManager;
 import ServerControl.*;
 import alarma.Alarma;

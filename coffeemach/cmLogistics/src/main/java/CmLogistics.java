@@ -24,6 +24,8 @@ public class CmLogistics {
 
             logistic.registerLogisticCenter(prx);
 
+            System.out.println("Logistic Center is running...");
+            
             adapter.activate();
             communicator.waitForShutdown();
 

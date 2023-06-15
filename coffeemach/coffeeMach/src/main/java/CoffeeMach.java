@@ -12,7 +12,6 @@ import servicios.*;
 public class CoffeeMach {
   public static void main(String[] args) {
     List<String> extPar = new ArrayList<>();
-    System.out.println("Hola soy la cafetera me conecto a hgrid9");
     try (Communicator communicator = Util.initialize(args, "coffeMach.cfg", extPar)) {
 
       //Endpoint from server
@@ -24,8 +23,6 @@ public class CoffeeMach {
           communicator.propertyToProxy("recetas")).ice_twoway();
       ObservablePrx proxyCache = ObservablePrx.checkedCast(
         communicator.propertyToProxy("proxycache")).ice_twoway();
-        
-      System.out.println("Hola, deberia estar corriendo");
       
       ReliableMessagePrx reliableMessageService = ReliableMessagePrx.checkedCast(
         communicator.propertyToProxy("rm")).ice_twoway();
@@ -48,8 +45,9 @@ public class CoffeeMach {
     
       proxyCache.attach(prx); //Register the coffee machine as an observer of the proxy cache
 
+      System.out.println("Coffee Machine is running...");
+
       service.run();
-      System.out.println("Hola, ya estoy corriendo");
       adapter.activate();
       communicator.waitForShutdown();
     }
