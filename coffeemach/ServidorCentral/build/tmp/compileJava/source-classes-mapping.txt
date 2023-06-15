@@ -70,12 +70,9 @@ RM/ReliableMessagePrx.java
 servicios/logisticCommunication.java
  servicios.logisticCommunication
  servicios.logisticCommunication$1
-interfaz/ControladorRecetas.java
- interfaz.ControladorRecetas
- interfaz.ControladorRecetas$1
- interfaz.ControladorRecetas$2
- interfaz.ControladorRecetas$3
- interfaz.ControladorRecetas$4
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 servicios/RecetaServicePrx.java
@@ -98,8 +95,8 @@ pubsub/ObservablePrx.java
  pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
-ServidorCentral.java
- ServidorCentral
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 servicios/WarehouseCommunicationPrx.java
@@ -129,8 +126,11 @@ pubsub/_ObserverPrxI.java
  pubsub._ObserverPrxI
 modelo/VentasReceta.java
  modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+interfaz/ControladorRecetas.java
+ interfaz.ControladorRecetas
+ interfaz.ControladorRecetas$1
+ interfaz.ControladorRecetas$2
+ interfaz.ControladorRecetas$3
+ interfaz.ControladorRecetas$4
+ServidorCentral.java
+ ServidorCentral

@@ -174,7 +174,7 @@ public class ControladorRecetas implements Runnable {
 			public void actionPerformed(ActionEvent e) {
 
 				logistic.sendAlarmsToLogistic(null);
-				warehouse.sendOrdersToWarehouse(null);
+				//warehouse.sendOrdersToWarehouse(null);
 				
 				//if(!recetaService.consultarSiRecetaTieneIngredientesAsociados(idLastRecipeCreated)) {
 				//	JOptionPane.showMessageDialog(iR, "La receta debee tener ingredientes asociados", "Error", JOptionPane.WARNING_MESSAGE);
