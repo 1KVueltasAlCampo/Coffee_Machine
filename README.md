@@ -193,3 +193,24 @@ Aqui va png de cmLogistic corriendo...
   ejecutamos el jar con <strong>java -jar build/libs/bodegaCentral.jar</strong> y quedara ejecutandose en una CLI.
 </p>
 Aqui va png de bodegaCentral corriendo...
+
+### Reliable Messaging de Maquina de Cafe
+
+<p align="justify">
+  Para desplegar <strong>una maquina de cafe</strong> es necesario primero tener corriendo, en el mismo computador, un CMD ejecutando el sistema del reliable
+  messaging. En esta ocasion, sera desplegado sobre la maquina <strong>hgrid7</strong> en adelante del LIASON. En la 
+  <a href="./coffeemach/reliableMessage/src/main/resources/ReliableMessage.cfg"><strong>configuración de este nodo</strong></a> el relSer este <strong>escuchando 
+  la maquina y el puerto donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, para ser consumido por
+  la instancia de la maquina de cafe. En ese caso como lo configuramos, ya que por cada maquina se requiere un reliable, los reliable messaging ocuparian los
+  puertos pares a partir del 9096.
+</p>
+<p align="center"><img src="./Documents/README images/reliableMessageCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el nodo reliableMessage, nos paramos en el directorio donde se encuentra el proyecto Gradle de este: <a href="./coffeemach/reliableMessage">
+  <strong>./coffeemach/reliableMessage</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/reliableMessage.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de reliableMessage corriendo...
+
+### Maquina de Cafe
