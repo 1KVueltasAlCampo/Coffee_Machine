@@ -16,6 +16,9 @@ reliable-messaging.
     <li> No perder alarmas al momento de ser enviadas desde las maquinas al servidor central. </li>
     <li> Asegurar la resolución de las alamarmas en su ciclo de vida por bodega y logistica. </li>
   </ul>
+  <a href="./Documents/Elección de patrones de diseño arquitectónico.pdf"><strong>Aqui</strong></a> se encuentra una explicación
+  detallada de nuestra elección para cada uno de los patrones.
+</p>
 
 ## Miembros
 
@@ -141,3 +144,52 @@ reliable-messaging.
 <p align="center"><img src="./Documents/README images/servidorCentralnterfaz.png" size="70%"/></p>
 
 ### Proxy-Cache
+
+<p align="justify">
+  Para proceder con el despliegue del nodo de <strong>Proxy-cache</strong> debemos de tener el <a href="./coffeemach/ProxyCache/src/main/resources/proxycache.cfg">
+  <strong>archivo de configuración</strong></a> de este nodo de tal forma que con el gateway este <strong>escuchando la maquina y el puerto
+  donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, en este caso en el 9095.
+  Este montaje se realizo en la maquina <strong>hgrid4</strong> del LIASON.
+</p>
+<p align="center"><img src="./Documents/README images/proxyCacheCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el ProxyCache, nos paramos en el directorio donde se encuentra el proyecto Gradle del ProxyCache: <a href="./coffeemach/ProxyCache">
+  <strong>./coffeemach/ProxyCache</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/ProxyCache.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de proxy-cache corriendo...
+
+### Area de Logistica
+
+<p align="justify">
+  Ahora, para el despliegue de otro de los servicios importantes de nuestro sistema distribuido, nos paramos, en nuestro caso, sobre el <strong>hgrid5</strong>
+  para ejecutar el nodo de <strong>cmLogistics</strong>, donde debemos de tener el <a href="./coffeemach/cmLogistics/src/main/resources/CmLogistic.cfg">
+  <strong>archivo de configuración</strong></a> de este nodo de tal forma que con el logisticServer este <strong>escuchando la maquina y el puerto
+  donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, en este caso en el 9092.
+</p>
+<p align="center"><img src="./Documents/README images/cmLogisticCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el cmLogistic, nos paramos en el directorio donde se encuentra el proyecto Gradle de este: <a href="./coffeemach/cmLogistics">
+  <strong>./coffeemach/cmLogistics</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/cmLogistics.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de cmLogistic corriendo...
+
+### Area de Bodega
+
+<p align="justify">
+  Para desplegar el sistema de la bodega central, nos paramos, en nuestro caso, sobre la maquina <strong>hgrid6</strong> del LIASON, donde ejecutamos el
+  nodo de <strong>bodegaCentral</strong>, donde debemos de tener el <a href="./coffeemach/bodegaCentral/src/main/resources/warehouse.cfg">
+  <strong>archivo de configuración</strong></a> de este nodo de tal forma que con el warehouseServer este <strong>escuchando la maquina y el puerto
+  donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, en este caso en el 9093.
+</p>
+<p align="center"><img src="./Documents/README images/warehouseCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el nodo bodegaCentral, nos paramos en el directorio donde se encuentra el proyecto Gradle de este: <a href="./coffeemach/bodegaCentral">
+  <strong>./coffeemach/bodegaCentral</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/bodegaCentral.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de bodegaCentral corriendo...
