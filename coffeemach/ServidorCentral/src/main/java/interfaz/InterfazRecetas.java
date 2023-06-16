@@ -146,7 +146,7 @@ public class InterfazRecetas extends JFrame {
 		btnEnviarAlarmasLogistica.setBounds(10, 580, 366, 23);
 		contentPane.add(btnEnviarAlarmasLogistica);
 		//------------------------------------------}
-		btnEnviarAlarmasBodega = new JButton("Enviar alarmas a logistica");
+		btnEnviarAlarmasBodega = new JButton("Generar ordenes para bodega");
 		btnEnviarAlarmasBodega.setBounds(10, 615, 366, 23);
 		contentPane.add(btnEnviarAlarmasBodega);
 	}
