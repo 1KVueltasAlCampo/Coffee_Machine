@@ -16,6 +16,9 @@ reliable-messaging.
     <li> No perder alarmas al momento de ser enviadas desde las maquinas al servidor central. </li>
     <li> Asegurar la resolución de las alamarmas en su ciclo de vida por bodega y logistica. </li>
   </ul>
+  <a href="./Documents/Elección de patrones de diseño arquitectónico.pdf"><strong>Aqui</strong></a> se encuentra una explicación
+  detallada de nuestra elección para cada uno de los patrones.
+</p>
 
 ## Miembros
 
@@ -92,3 +95,101 @@ reliable-messaging.
 </p>
 <p align="center"><img src="./Documents/README images/bd2.png" width="70%"/></p>
 <p align="center"><img src="./Documents/README images/bd3.png" width="70%"/></p>
+
+<p align="justify">
+  Después salimos del usuario de postgres y entramos en el usuario que acabamos de crear con el script anterior. Para ello, usamos el
+  comando <strong>psql -U postgres -h localhost carvi_coffeemachine</strong>
+</p>
+<p align="center"><img src="./Documents/README images/bd4.png" width="70%"/></p>
+
+<p align="justify">
+  Una vez logeado con las credenciales del script, ahora podemos proceder con la <strong>creación de las tablas</strong> en las que se van a
+  almacenar diferentes objetos que utilizamos en el sistema, como los <strong>ingredientes, recetas y alarmas</strong>, esto lo hacemos con el
+  <a href="./scripts/postgres/coffeemach-ddl.sql"><strong>script para crear tablas</strong></a>. Las tablas del script son:
+</p>
+<p align="center"><img src="./Documents/README images/scriptDDL.png" width="70%"/></p>
+<p align="justify">
+  El resultado final de esta creacion lo podemos ver asi:
+</p>
+<p align="center"><img src="./Documents/README images/bd5.png" width="70%"/></p>
+
+<p align="justify">
+  Después de la creacion de las tablas, ejecutamos el <a href="./scripts/postgres/coffeemach-inserts.sql"><strong>script para insertar datos
+  en tablas</strong></a>. En este script podemos ver datos importantes para las maquinas como lo son los siguientes:
+</p>
+<p align="center"><img src="./Documents/README images/scriptInsert1.png" width="70%"/></p>
+
+### Servidor Central
+<p align="justify">
+  Para el despliegue del <strong>Servidor Central</strong> decidimos utilizar la maquina <strong>hgrid3</strong>, con el puerto 9096. Ya que 
+  este necesita conexión directa con la base de datos, entonces, en el <a hred="./coffeemach/ServidorCentral/src/main/resources/server.cfg">
+  <strong>archivo de configuración del servidor</strong></a> añadimos lo necesario para que pueda acceder, esto es:
+</p>
+<p align="center"><img src="./Documents/README images/servidorCentralCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Una vez realizada esta configuración, para desplegar el <strong>Servidor Central</strong> podemos realizar de forma local, es decir, desde
+  el mismo computador de lal laboratorio, o por el contrario lo hacemos pos medio de <strong>PuTTy</strong>, activando el X11 y conectandonos
+  al usuario <strong>swarch</strong> de la maquina.
+</p>
+<p align="center"><img src="./Documents/README images/putty1.png" size="70%"/></p>
+
+<p align="justify">
+  Ahora, para levantar el Servidor Central podemos compilar el proyecto en la maquina o pasarle directamente a esta el <strong>.jar</strong>
+  y solo ejecutarlo. En nuestro caso, clonamos este respositorio y compilabamos en la maquina, por lo que, parandonos en el directorio del 
+  Servidor Central: <a href="./coffeemach/ServidorCentral"><strong>./coffeemach/ServidorCentral</strong></a> desde la raiz de este proyecto,
+  ejecutamos el comando <strong>gradle build</strong> y posteriormente ejecutamos el jar con <strong>java -jar build/libs/ServidorCentral.jar
+  </strong>, luego se ejecutara la interfaz de usuario:
+</p>
+<p align="center"><img src="./Documents/README images/servidorCentralnterfaz.png" size="70%"/></p>
+
+### Proxy-Cache
+
+<p align="justify">
+  Para proceder con el despliegue del nodo de <strong>Proxy-cache</strong> debemos de tener el <a href="./coffeemach/ProxyCache/src/main/resources/proxycache.cfg">
+  <strong>archivo de configuración</strong></a> de este nodo de tal forma que con el gateway este <strong>escuchando la maquina y el puerto
+  donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, en este caso en el 9095.
+  Este montaje se realizo en la maquina <strong>hgrid4</strong> del LIASON.
+</p>
+<p align="center"><img src="./Documents/README images/proxyCacheCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el ProxyCache, nos paramos en el directorio donde se encuentra el proyecto Gradle del ProxyCache: <a href="./coffeemach/ProxyCache">
+  <strong>./coffeemach/ProxyCache</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/ProxyCache.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de proxy-cache corriendo...
+
+### Area de Logistica
+
+<p align="justify">
+  Ahora, para el despliegue de otro de los servicios importantes de nuestro sistema distribuido, nos paramos, en nuestro caso, sobre el <strong>hgrid5</strong>
+  para ejecutar el nodo de <strong>cmLogistics</strong>, donde debemos de tener el <a href="./coffeemach/cmLogistics/src/main/resources/CmLogistic.cfg">
+  <strong>archivo de configuración</strong></a> de este nodo de tal forma que con el logisticServer este <strong>escuchando la maquina y el puerto
+  donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, en este caso en el 9092.
+</p>
+<p align="center"><img src="./Documents/README images/cmLogisticCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el cmLogistic, nos paramos en el directorio donde se encuentra el proyecto Gradle de este: <a href="./coffeemach/cmLogistics">
+  <strong>./coffeemach/cmLogistics</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/cmLogistics.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de cmLogistic corriendo...
+
+### Area de Bodega
+
+<p align="justify">
+  Para desplegar el sistema de la bodega central, nos paramos, en nuestro caso, sobre la maquina <strong>hgrid6</strong> del LIASON, donde ejecutamos el
+  nodo de <strong>bodegaCentral</strong>, donde debemos de tener el <a href="./coffeemach/bodegaCentral/src/main/resources/warehouse.cfg">
+  <strong>archivo de configuración</strong></a> de este nodo de tal forma que con el warehouseServer este <strong>escuchando la maquina y el puerto
+  donde se monto el Servidor Central</strong> Y adicionalmente que exponga un endpoint en alguno de sus puertos, en este caso en el 9093.
+</p>
+<p align="center"><img src="./Documents/README images/warehouseCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Para ejecutar el nodo bodegaCentral, nos paramos en el directorio donde se encuentra el proyecto Gradle de este: <a href="./coffeemach/bodegaCentral">
+  <strong>./coffeemach/bodegaCentral</strong></a> desde la raiz de este proyecto, ejecutamos el comando <strong>gradle build</strong> y posteriormente 
+  ejecutamos el jar con <strong>java -jar build/libs/bodegaCentral.jar</strong> y quedara ejecutandose en una CLI.
+</p>
+Aqui va png de bodegaCentral corriendo...
