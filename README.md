@@ -92,3 +92,52 @@ reliable-messaging.
 </p>
 <p align="center"><img src="./Documents/README images/bd2.png" width="70%"/></p>
 <p align="center"><img src="./Documents/README images/bd3.png" width="70%"/></p>
+
+<p align="justify">
+  Después salimos del usuario de postgres y entramos en el usuario que acabamos de crear con el script anterior. Para ello, usamos el
+  comando <strong>psql -U postgres -h localhost carvi_coffeemachine</strong>
+</p>
+<p align="center"><img src="./Documents/README images/bd4.png" width="70%"/></p>
+
+<p align="justify">
+  Una vez logeado con las credenciales del script, ahora podemos proceder con la <strong>creación de las tablas</strong> en las que se van a
+  almacenar diferentes objetos que utilizamos en el sistema, como los <strong>ingredientes, recetas y alarmas</strong>, esto lo hacemos con el
+  <a href="./scripts/postgres/coffeemach-ddl.sql"><strong>script para crear tablas</strong></a>. Las tablas del script son:
+</p>
+<p align="center"><img src="./Documents/README images/scriptDDL.png" width="70%"/></p>
+<p align="justify">
+  El resultado final de esta creacion lo podemos ver asi:
+</p>
+<p align="center"><img src="./Documents/README images/bd5.png" width="70%"/></p>
+
+<p align="justify">
+  Después de la creacion de las tablas, ejecutamos el <a href="./scripts/postgres/coffeemach-inserts.sql"><strong>script para insertar datos
+  en tablas</strong></a>. En este script podemos ver datos importantes para las maquinas como lo son los siguientes:
+</p>
+<p align="center"><img src="./Documents/README images/scriptInsert1.png" width="70%"/></p>
+
+### Servidor Central
+<p align="justify">
+  Para el despliegue del <strong>Servidor Central</strong> decidimos utilizar la maquina <strong>hgrid3</strong>, con el puerto 9096. Ya que 
+  este necesita conexión directa con la base de datos, entonces, en el <a hred="./coffeemach/ServidorCentral/src/main/resources/server.cfg">
+  <strong>archivo de configuración del servidor</strong></a> añadimos lo necesario para que pueda acceder, esto es:
+</p>
+<p align="center"><img src="./Documents/README images/servidorCentralCfg.png" width="70%"/></p>
+
+<p align="justify">
+  Una vez realizada esta configuración, para desplegar el <strong>Servidor Central</strong> podemos realizar de forma local, es decir, desde
+  el mismo computador de lal laboratorio, o por el contrario lo hacemos pos medio de <strong>PuTTy</strong>, activando el X11 y conectandonos
+  al usuario <strong>swarch</strong> de la maquina.
+</p>
+<p align="center"><img src="./Documents/README images/putty1.png" size="70%"/></p>
+
+<p align="justify">
+  Ahora, para levantar el Servidor Central podemos compilar el proyecto en la maquina o pasarle directamente a esta el <strong>.jar</strong>
+  y solo ejecutarlo. En nuestro caso, clonamos este respositorio y compilabamos en la maquina, por lo que, parandonos en el directorio del 
+  Servidor Central: <a href="./coffeemach/ServidorCentral"><strong>./coffeemach/ServidorCentral</strong></a> desde la raiz de este proyecto,
+  ejecutamos el comando <strong>gradle build</strong> y posteriormente ejecutamos el jar con <strong>java -jar build/libs/ServidorCentral.jar
+  </strong>, luego se ejecutara la interfaz de usuario:
+</p>
+<p align="center"><img src="./Documents/README images/servidorCentralnterfaz.png" size="70%"/></p>
+
+### Proxy-Cache
