@@ -48,9 +48,8 @@ servicios/ServicioComLogistica.java
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/_WarehouseCommunicationPrxI.java
  servicios._WarehouseCommunicationPrxI
 servicios/_WarehouseServicePrxI.java
@@ -68,17 +67,18 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 RM/ReliableMessagePrx.java
  RM.ReliableMessagePrx
+modelo/VentasReceta.java
+ modelo.VentasReceta
 servicios/logisticCommunication.java
  servicios.logisticCommunication
  servicios.logisticCommunication$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-pubsub/ObserverPrx.java
- pubsub.ObserverPrx
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 receta/ProductoReceta.java
  receta.ProductoReceta
 pubsub/_ObservablePrxI.java
@@ -87,16 +87,16 @@ servicios/logisticCommunicationPrx.java
  servicios.logisticCommunicationPrx
 servicios/_ServicioComLogisticaPrxI.java
  servicios._ServicioComLogisticaPrxI
-modelo/VentasReceta.java
- modelo.VentasReceta
+pubsub/_ObserverPrxI.java
+ pubsub._ObserverPrxI
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
 pubsub/ObservablePrx.java
  pubsub.ObservablePrx
 servicios/Moneda.java
  servicios.Moneda
-pubsub/_ObserverPrxI.java
- pubsub._ObserverPrxI
+pubsub/ObserverPrx.java
+ pubsub.ObserverPrx
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 servicios/WarehouseCommunicationPrx.java

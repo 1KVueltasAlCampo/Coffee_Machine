@@ -2,9 +2,12 @@ package reliable_message;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import javax.swing.text.AbstractDocument.BranchElement;
+
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Current;
 
+import alarma.Alarma;
 import interfaz.ControladorRecetas;
 import servicios.AlarmaServicePrx;
 
@@ -19,6 +22,7 @@ public class RMImp implements RM.ReliableMessage {
     private AlarmaServicePrx alarmaService; //No se cual de los dos es el que se usa :c
     private Queue<String> queue;
     private ControladorRecetas controladorRecetas;
+    private Alarma alarma;
     /**
      * @param communicator the communicator to set
      */
@@ -37,10 +41,18 @@ public class RMImp implements RM.ReliableMessage {
     }
 
     
+    /**
+     * @param alarma controlador receta to set
+     */
+    public void setAlarma(Alarma alarma) {
+        this.alarma = alarma;   
+    }
+
+    /* 
     public void notifyAlarm(String a, Current current) {
         System.out.println("#"+(queue.size()+1)+"Alarma recibida: "+a);
         queue.add(a);
-    }
+    } */
 
     public String pollAlarm(){
         return queue.poll();
@@ -55,30 +67,38 @@ public class RMImp implements RM.ReliableMessage {
     }
 
     
-    /*@Override
+    @Override
     public void notifyAlarm(String a, Current current) {
         String[] partsOfAlarm = a.split("@s");
+        
+        /*for (String string : partsOfAlarm) {
+            System.out.println(string);
+        }*/
 
-        switch(Integer.parseInt(partsOfAlarm[0])){
-            case INGREDIENTES:
-                alarmaService.recibirNotificacionEscasezIngredientes(partsOfAlarm[1], Integer.parseInt(partsOfAlarm[2]));
-                break;
-            case MONEDAS:
-                alarmaService.recibirNotificacionInsuficienciaMoneda(servicios.Moneda.valueOf(partsOfAlarm[1]), Integer.parseInt(partsOfAlarm[2]));
-                break;
-            case SUMINISTRO:
-                break;
-            case ABASTECIMIENTO:
-                alarmaService.recibirNotificacionAbastesimiento(Integer.parseInt(partsOfAlarm[1]), partsOfAlarm[2], Integer.parseInt(partsOfAlarm[3]));
-                break;
-            case MALFUN:
-                alarmaService.recibirNotificacionMalFuncionamiento(Integer.parseInt(partsOfAlarm[1]), partsOfAlarm[2]);
-                break;
-            default:
-                break;
+        switch (Integer.parseInt(partsOfAlarm[0])) {
+            case 1: 
+                alarma.recibirNotificacionEscasezIngredientes(partsOfAlarm[1], Integer.parseInt(partsOfAlarm[2]), current);
+            break;
+
+            case 2: //Moneda is setted to 0 as default value, thats equivalent to 100 pesos
+                alarma.recibirNotificacionInsuficienciaMoneda(servicios.Moneda.valueOf(0), Integer.parseInt(partsOfAlarm[1]), current);
+            break;
+
+            case 3:
+                alarma.recibirNotificacionEscasezSuministro(partsOfAlarm[1], Integer.parseInt(partsOfAlarm[2]), current);
+            break;
+
+            case 4:
+                alarma.recibirNotificacionAbastesimiento(Integer.parseInt(partsOfAlarm[1]), partsOfAlarm[2], Integer.parseInt(partsOfAlarm[3]), current);
+            break;
+
+            case 5:
+                alarma.recibirNotificacionMalFuncionamiento(Integer.parseInt(partsOfAlarm[1]), partsOfAlarm[2], current);
+            break;
+
         }
 
-    }*/
+        
+    }
     
-
 }

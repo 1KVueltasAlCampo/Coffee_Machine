@@ -26,7 +26,7 @@ public class ManejadorDatos {
 
 			// Verificar que no exista esa alarma en el sistema
 
-			String busAlaCoincidente = "SELECT * FROM ALARMA_MAQUINA alx WHERE alx.FECHA_FINAL is null AND alx.ID_ALARMA = ? AND alx.ID_MAQUINA = ?";
+			/*String busAlaCoincidente = "SELECT * FROM ALARMA_MAQUINA alx WHERE alx.FECHA_FINAL is null AND alx.ID_ALARMA = ? AND alx.ID_MAQUINA = ?";
 			PreparedStatement psx = conexion
 					.prepareStatement(busAlaCoincidente);
 			psx.setInt(1, aM.getIdAlarma());
@@ -36,7 +36,7 @@ public class ManejadorDatos {
 			if (rsx.next()) {
 				System.out
 						.println("Alarma ya agregada previamente, se notificará al operador encargado");
-			} else {
+			} else {*/
 
 				Statement st = conexion.createStatement();
 				st.execute("SELECT NEXTVAL('CONSECALARMA')");
@@ -55,7 +55,7 @@ public class ManejadorDatos {
 				pst.setInt(4, consecutivo);
 				pst.executeUpdate();
 
-			}
+			//}
 
 		} catch (SQLException e) {
 			e.printStackTrace();

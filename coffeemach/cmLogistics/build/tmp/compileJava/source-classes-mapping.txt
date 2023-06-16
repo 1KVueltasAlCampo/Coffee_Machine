@@ -51,8 +51,8 @@ servicios/RecetaService.java
  servicios.RecetaService$1
 servicios/WarehouseCommunicationPrx.java
  servicios.WarehouseCommunicationPrx
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+CmLogistics.java
+ CmLogistics
 servicios/WarehouseServicePrx.java
  servicios.WarehouseServicePrx
 servicios/_WarehouseCommunicationPrxI.java
@@ -85,5 +85,5 @@ servicios/MapStrIntHelper.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-CmLogistics.java
- CmLogistics
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx

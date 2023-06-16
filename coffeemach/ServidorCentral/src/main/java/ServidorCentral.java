@@ -42,6 +42,7 @@ public class ServidorCentral {
 
             RMImp reliableMessage = new RMImp();
             reliableMessage.setCommunicator(communicator);
+            reliableMessage.setAlarma(alarma);
 
             logistic.setRealiableMessage(reliableMessage);
             warehouse.setRealiableMessage(reliableMessage);

@@ -46,8 +46,8 @@ servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica$1
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+BodegaCentral.java
+ BodegaCentral
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
@@ -89,5 +89,5 @@ servicios/MapStrIntHelper.java
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-BodegaCentral.java
- BodegaCentral
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
